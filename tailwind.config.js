@@ -6,9 +6,13 @@ module.exports = {
       colors: {
         // https://lospec.com/palette-list/aap-64
         'black-main': '#060608',
-        'pink-main': '#793a80',
+        'purple-main': '#793a80',
         'red-main': '#73172d',
-        'blue-main': '#143464'
+        'blue-main': '#143464',
+        'off-white': '#dae0ea',
+        'purple-light': '#bc4a9b',
+        'red-light': '#b4202a',
+        'red-bright': '#df3e23',
       }
     },
   },

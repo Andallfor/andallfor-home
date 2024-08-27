@@ -6,8 +6,27 @@
     font-family: "Fira Code", monospace;
     font-optical-sizing: auto;
     font-weight: 500;
-font-style: normal;
+    font-style: normal;
 }
+
+.fira-code-bold {
+    font-family: "Fira Code", monospace;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.dm-mono-light {
+    font-family: "DM Mono", monospace;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.dm-mono-bold {
+    font-family: "DM Mono", monospace;
+    font-weight: 600;
+    font-style: normal;
+  }
 
 .border-animation-pink {
     background-image: 
@@ -28,7 +47,7 @@ font-style: normal;
 
 .fade-bottom {
     --mask: linear-gradient(to bottom, 
-        rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 15%, 
+        rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 40%, 
         rgba(0,0,0, 0) 90%, rgba(0,0,0, 0) 0
     ) 100% 50% / 100% 100% repeat-x;
 
