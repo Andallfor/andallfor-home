@@ -684,6 +684,14 @@ video {
   margin-top: 48rem;
 }
 
+.ml-2 {
+  margin-left: 0.5rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
+}
+
 .flex {
   display: flex;
 }
@@ -762,6 +770,10 @@ video {
 
 .max-w-\[1920px\] {
   max-width: 1920px;
+}
+
+.max-w-full {
+  max-width: 100%;
 }
 
 .flex-grow {
@@ -849,6 +861,14 @@ video {
   overflow: clip;
 }
 
+.overflow-x-clip {
+  overflow-x: clip;
+}
+
+.text-wrap {
+  text-wrap: wrap;
+}
+
 .rounded-md {
   border-radius: 0.375rem;
 }
@@ -922,6 +942,11 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
 }
 
 .leading-relaxed {
