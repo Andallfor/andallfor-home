@@ -54,3 +54,18 @@
     -webkit-mask: var(--mask); 
     mask: var(--mask);
 }
+
+.soft-edges {
+    --soft-mask-vertical: linear-gradient(to bottom,
+        rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1), 15%,
+        rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 0
+    ) 100% 500% / 100% 100% repeat-x;
+
+    --soft-mask-horizontal: linear-gradient(to right,
+        rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 1), 15%,
+        rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 0
+    ) 100% 500% / 100% 100% repeat-y;
+
+    -webkit-mask: var(--soft-mask-vertical), var(--soft-mask-horizontal);
+    mask: var(--soft-mask-vertical), var(--soft-mask-horizontal);
+}
