@@ -69,3 +69,12 @@
     -webkit-mask: var(--soft-mask-vertical), var(--soft-mask-horizontal);
     mask: var(--soft-mask-vertical), var(--soft-mask-horizontal);
 }
+
+@layer components {
+    .link-red {
+        @apply underline underline-offset-[3px] decoration-1 decoration-red-light hover:decoration-red-bright
+    }
+    .link-red-2 {
+        @apply underline underline-offset-[3px] decoration-2 decoration-red-light hover:decoration-red-bright
+    }
+}
