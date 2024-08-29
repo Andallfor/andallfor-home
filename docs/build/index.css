@@ -580,6 +580,10 @@ video {
   pointer-events: none;
 }
 
+.static {
+  position: static;
+}
+
 .absolute {
   position: absolute;
 }
@@ -620,6 +624,10 @@ video {
   top: 500px;
 }
 
+.top-4 {
+  top: 1rem;
+}
+
 .-z-10 {
   z-index: -10;
 }
@@ -642,6 +650,10 @@ video {
 
 .mb-4 {
   margin-bottom: 1rem;
+}
+
+.ml-4 {
+  margin-left: 1rem;
 }
 
 .ml-8 {
@@ -684,12 +696,24 @@ video {
   margin-top: 48rem;
 }
 
-.ml-2 {
-  margin-left: 0.5rem;
+.mb-8 {
+  margin-bottom: 2rem;
 }
 
-.ml-4 {
-  margin-left: 1rem;
+.mt-6 {
+  margin-top: 1.5rem;
+}
+
+.mb-6 {
+  margin-bottom: 1.5rem;
+}
+
+.mr-5 {
+  margin-right: 1.25rem;
+}
+
+.mr-52 {
+  margin-right: 13rem;
 }
 
 .flex {
@@ -770,10 +794,6 @@ video {
 
 .max-w-\[1920px\] {
   max-width: 1920px;
-}
-
-.max-w-full {
-  max-width: 100%;
 }
 
 .flex-grow {
@@ -865,10 +885,6 @@ video {
   overflow-x: clip;
 }
 
-.text-wrap {
-  text-wrap: wrap;
-}
-
 .rounded-md {
   border-radius: 0.375rem;
 }
@@ -900,6 +916,11 @@ video {
 .bg-white {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.bg-off-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(218 224 234 / var(--tw-bg-opacity));
 }
 
 .object-cover {
@@ -934,6 +955,11 @@ video {
   line-height: 1;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-xl {
   font-size: 1.25rem;
   line-height: 1.75rem;
@@ -942,11 +968,6 @@ video {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .leading-relaxed {
