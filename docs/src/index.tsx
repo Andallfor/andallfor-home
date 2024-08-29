@@ -1,6 +1,8 @@
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import Navigation from './Navigation.tsx';
+import LandingPage from './LandingPage.tsx';
+import Information from './Information.tsx';
 
 /*
 createRoot(document.getElementById('root')!).render(
@@ -10,7 +12,11 @@ createRoot(document.getElementById('root')!).render(
 )
 */
 
-const navRoot = createRoot(document.getElementById('navigation-hook')!);
-navRoot.render(
-  <Navigation></Navigation>
+const root = createRoot(document.getElementById('root')!);
+root.render(
+  <>
+    <Navigation></Navigation>
+    <LandingPage></LandingPage>
+    <Information></Information>
+  </>
 );
