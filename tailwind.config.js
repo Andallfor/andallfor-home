@@ -13,6 +13,8 @@ module.exports = {
         'purple-light': '#bc4a9b',
         'red-light': '#b4202a',
         'red-bright': '#df3e23',
+        'blue-light': '#249fde',
+        'blue-bright': '#20d6c7',
       }
     },
   },

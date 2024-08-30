@@ -77,4 +77,10 @@
     .link-red-2 {
         @apply underline underline-offset-[3px] decoration-2 decoration-red-light hover:decoration-red-bright
     }
+    .link-blue {
+        @apply underline underline-offset-[3px] decoration-1 decoration-blue-light hover:decoration-blue-bright
+    }
+    .link-blue-2 {
+        @apply underline underline-offset-[3px] decoration-2 decoration-blue-light hover:decoration-blue-bright
+    }
 }

@@ -1,7 +1,9 @@
+import { useEffect } from 'react';
+
 function Skills() {
     return (
-        <div className="">
-            <p className="text-7xl text-white fira-code-font text-right">SKILLS</p>
+        <div className="text-nowrap">
+            <p className="text-5xl text-white fira-code-font text-right">SKILLS</p>
             <div>
                 <p className="text-2xl text-off-white text-right">
                 <i className="ri-arrow-down-s-line"></i>
@@ -12,7 +14,7 @@ function Skills() {
                 Scientific Simulations
                 </p>
             </div>
-            <p className="text-7xl text-white fira-code-font text-right mt-4">PLATFORMS</p>
+            <p className="text-5xl text-white fira-code-font text-right mt-4">PLATFORMS</p>
             <p className="text-2xl text-off-white text-right">
                 <i className="ri-arrow-down-s-line"></i>
                 C#
@@ -55,32 +57,29 @@ function ContactLinkBody({url, urlCover, newSection}: ContactLinkBodyConfig) {
 // undefined denotes that there should be a gap between this and the next entry
 function About({links}: ContactLinkProp) {
     return (
-        <div className="flex-grow flex flex-col gap-4">
-            <div>
-                <p className="text-7xl text-white fira-code-font">ABOUT</p>
-                <div className="flex justify-between mt-4 gap-8">
-                <div className="flex-grow-[0.25] w-0">
-                    <img src="self.jpg"/>
-                    <div className="absolute mt-4 leading-relaxed text-white text-md tracking-wide">
-                        {links.map(({ id, icon, title, newSection }) => (
-                            <ContactLinkTitle key={id} icon={icon} title={title} newSection={newSection}></ContactLinkTitle>
-                        ))}
+        <div id="information-main" className="flex flex-col gap-4">
+            <p className="text-8xl text-white fira-code-font align-text-bottom">ABOUT</p>
+            <div className='grid grid-cols-2 grid-flow-row-dense mt-4 gap-4' style={{gridTemplateRows: '1fr auto', gridTemplateColumns: '1fr 3fr'}}>
+                <img src="self.jpg"/>
+                <div className="backdrop-blur-sm bg-black-main/30 w-full h-full rounded-md text-white relative">
+                    <div className="pl-4 pr-4 pt-2 pb-2 text-xl tracking-wide leading-normal">
+                        <p className='font-semibold'>Hello! Thanks for stopping by!</p><br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;My name is Leo Wang, an undergraduate studying computer science at the <a href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a> as part of the <a href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College. I have the most experience in high-performance scientific simulations and large scale (billions (!)) data processing/visualization, especially as a result of my <a href='https://github.com/Andallfor/MVT' className='font-semibold link-blue-2'>3 year long internship with NASA</a>. I primarily work with C#, though I also have experience with TypeScript, C++, and Java.
+                        <br/><br/>
+                        &nbsp;&nbsp;&nbsp;&nbsp;Outside of programming, I enjoy metal model building (the Metal Earth series is great!), astronomy, and reading. Currently, my favorite book is <a href='https://en.wikipedia.org/wiki/Babel,_or_the_Necessity_of_Violence' className='font-semibold link-blue-2 italic'>Babel, or the Necessity of Violence</a> by R.F. Kuang - I cannot recommend this book enough if you are into fantasy with elements of social commentary. Otherwise, I like to spend my time looking at pictures of my dogs.
+                        <br/><br/>
+                        <div className="w-5/6 text-right">- Leo Wang</div>
                     </div>
                 </div>
-                <div className="flex-grow-[0.75]">
-                    <div className="backdrop-blur-sm bg-black-main/30 w-full h-full rounded-md text-white">
-                        <div className="ml-4 mt-2 text-lg absolute">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu lorem finibus, ultrices dui id, cursus ante. Sed cursus cursus dui, et luctus eros dictum vel. Morbi eget eros at turpis auctor aliquam eu dignissim metus. Quisque facilisis euismod mauris nec sodales. Proin tristique massa feugiat, mattis velit a, imperdiet est. Vestibulum accumsan convallis dolor id porttitor. Duis ultricies, felis vel congue gravida, urna neque pretium urna, ac malesuada turpis odio et nisl. Aliquam fermentum pulvinar ex id semper. Sed vel elit porttitor, vestibulum libero sed, mollis lorem. In hac habitasse platea dictumst. Integer gravida dui ipsum, vel vulputate arcu convallis nec. Nulla aliquam mattis elit quis semper. In suscipit volutpat posuere. Donec justo orci, finibus in placerat in, vehicula vel turpis.
-                            <br/><br/><br/>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus eu lorem finibus, ultrices dui id, cursus ante. Sed cursus cursus dui, et luctus eros dictum vel. Morbi eget eros at turpis auctor aliquam eu dignissim metus. Quisque facilisis euismod mauris nec sodales. Proin tristique massa feugiat, mattis velit a, imperdiet est.
-                        </div>
-                    </div>
-                    <div className="relative mt-4 leading-relaxed text-white text-md tracking-wide w-0 min-w-full">
-                        {links.map(({ id, url, urlCover, newSection }) => (
-                            <ContactLinkBody key={id + links.length} url={url} urlCover={urlCover} newSection={newSection}></ContactLinkBody>
-                        ))}
-                    </div>
+                <div id="information-contact-link-header" className="mt-4 leading-relaxed text-white text-md tracking-wide">
+                    {links.map(({ id, icon, title, newSection }) => (
+                        <ContactLinkTitle key={id} icon={icon} title={title} newSection={newSection}></ContactLinkTitle>
+                    ))}
                 </div>
+                <div id="information-contact-link-body" className="mt-4 leading-relaxed text-white text-md tracking-wide w-0 min-w-full">
+                    {links.map(({ id, url, urlCover, newSection }) => (
+                        <ContactLinkBody key={id + links.length} url={url} urlCover={urlCover} newSection={newSection}></ContactLinkBody>
+                    ))}
                 </div>
             </div>
         </div>
@@ -100,7 +99,7 @@ export default function Information() {
          <div className="w-full flex justify-center mt-16">
             <div className="w-[90%] max-w-[1920px] flex gap-8 justify-between">
                <About links={li}></About>
-               <div className="h-full bg-white w-1"></div>
+               <div className="h-full bg-white w-0.5 shrink-0"></div>
                <Skills></Skills>
             </div>
          </div>
