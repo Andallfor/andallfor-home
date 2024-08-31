@@ -11,6 +11,7 @@ module.exports = {
         'blue-main': '#143464',
         'off-white': '#dae0ea',
         'purple-light': '#bc4a9b',
+        'purple-bright': '#e86a73',
         'red-light': '#b4202a',
         'red-bright': '#df3e23',
         'blue-light': '#249fde',

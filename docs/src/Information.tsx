@@ -4,7 +4,7 @@ interface SkillGroupProp {
     groups: SkillGroup[];
     skillsShown: boolean;
     toggleSkillsShown: () => void;
-    notifySkillHighlight: (data: SkillProp) => void;
+    notifySkillHighlight: (data: SkillProp | null) => void;
 }
 
 interface SkillGroup {
@@ -14,14 +14,14 @@ interface SkillGroup {
 
 interface Skill {
     name: string,
-    desc: string;
+    desc: string | JSX.Element;
 }
 
 interface SkillProp {
     element: HTMLElement;
     header: string;
     title: string;
-    description: string;
+    description: string | JSX.Element;
 }
 
 function Skills({ groups, skillsShown, toggleSkillsShown, notifySkillHighlight }: SkillGroupProp) {
@@ -52,20 +52,20 @@ function Skills({ groups, skillsShown, toggleSkillsShown, notifySkillHighlight }
                         {skills.map(({ name, desc }) => (
                             <div key={key++} className="transition-transform ease-in-out duration-[350ms]" style={{transform: getWidth(), transitionDelay: transitionIndex++ * 50 + 'ms'}}>
                                 <button onClick={(e) => notifySkillHighlight({
-                                        element: e.target as HTMLElement,
+                                        element: (e.target as HTMLElement).firstChild as HTMLElement, // expected to be the <p> child node
                                         header: header,
                                         title: name,
                                         description: desc
-                                    })}  className='w-full group flex justify-end mt-2'>
-                                    <p className="text-xl text-off-white text-right leading-tight">
-                                        <i className="ri-arrow-down-s-line"></i>
+                                    })} className='w-full group flex justify-end pt-2'>
+                                    <p className="text-xl text-off-white text-right leading-tight pointer-events-none transition-[margin-right]">
+                                        <i className="ri-arrow-down-s-line inline-block"></i>
                                         {name}
                                     </p>
-                                    <span className="absolute group-hover:opacity-100 w-1 h-full bg-red-main translate-x-4 opacity-0"></span>
+                                    <span className="absolute group-hover:opacity-100 w-1 h-full bg-red-main translate-x-4 opacity-0 pointer-events-none"></span>
                                 </button>
                             </div>
                         ))}
-                        <div className='h-4'></div>
+                        <div className='h-8'></div>
                     </div>
                 ))}
             </div>
@@ -83,6 +83,7 @@ function Skills({ groups, skillsShown, toggleSkillsShown, notifySkillHighlight }
 interface ContactLinkProp {
     links: ContactLink[];
     titleSubsection: SkillProp | null;
+    notifySkillHighlight: (data: SkillProp | null) => void;
 }
 
 interface ContactLink {
@@ -108,7 +109,7 @@ function ContactLinkBody({url, urlCover, newSection}: ContactLinkBodyConfig) {
 }
 
 // undefined denotes that there should be a gap between this and the next entry
-function About({ links, titleSubsection }: ContactLinkProp) {
+function About({ links, titleSubsection, notifySkillHighlight }: ContactLinkProp) {
     // um. it was very late when i coded this.
 
     function triggerAnimation(e: HTMLElement, a: string, dir: string) {
@@ -143,7 +144,6 @@ function About({ links, titleSubsection }: ContactLinkProp) {
 
     if (isSkillShown !== (titleSubsection !== null)) {
         if (titleSubsection === null) { // is now not shown, prev was
-            console.log('passed');
             const s = document.getElementById('about-section')!;
             const sb = document.getElementById('about-subsection')!;
 
@@ -174,13 +174,26 @@ function About({ links, titleSubsection }: ContactLinkProp) {
                     ))}
                 </div>
                 <div className="bg-black-main/30 w-full h-full rounded-sm text-white relative backdrop-blur-[2px]">
-                    <div className="pl-4 pr-4 pt-2 pb-2 text-lg tracking-wide leading-normal">
-                        <p className='font-semibold'>Hello! Thanks for stopping by!</p><br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;My name is Leo Wang, an undergraduate studying computer science at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a> as part of the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College. I have the most experience in high-performance scientific simulations and large scale (billions (!)) data processing/visualization, especially as a result of my <a target='_blank' href='https://github.com/Andallfor/MVT' className='font-semibold link-blue-2'>3 year long internship with NASA</a>. I primarily work with C#, though I also have experience with TypeScript, C++, and Java.
-                        <br/><br/>
-                        &nbsp;&nbsp;&nbsp;&nbsp;Outside of programming, I enjoy metal model building (the Metal Earth series is great!), astronomy, and reading. Currently, my favorite book is <a target='_blank' href='https://en.wikipedia.org/wiki/Babel,_or_the_Necessity_of_Violence' className='font-semibold link-blue-2 italic'>Babel, or the Necessity of Violence</a> by R.F. Kuang - I cannot recommend this book enough if you are into fantasy with elements of social commentary. Otherwise, I like to spend my time looking at pictures of my dogs.
-                        <br/><br/>
-                        <div className="w-5/6 text-right">- Leo Wang</div>
+                    <div className="pl-4 pr-4 pt-4 pb-2 text-lg tracking-wide leading-normal">
+                        {/* red links are personal (i.e. github) 
+                            blue is academic related
+                            purple is misc/flavor*/}
+                        {
+                            (titleSubsection === null) ? (<>
+                                <p className='font-semibold'>Hello! Thanks for stopping by!</p><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;My name is Leo Wang, an undergraduate studying computer science at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a> as part of the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College. I have the most experience in high-performance scientific simulations and large-scale (billions (!)) data processing/visualization, especially as a result of my <a target='_blank' href='https://github.com/Andallfor/MVT' className='font-semibold link-blue-2'>3 year long internship with NASA</a>. I primarily work with C#, though I also have experience with TypeScript, C++, Python, and Java.
+                                <br/><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;To the right is an abridged list of the technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are not sorted in any particular order.
+                                <br/><br/>
+                                &nbsp;&nbsp;&nbsp;&nbsp;Outside of programming, I enjoy metal model building (the <a target='_blank' className='font-semibold link-purple-2' href='https://www.metalearth.com/premium'>Metal Earth</a> series is great!), astronomy, and reading. Currently, my favorite book is <a target='_blank' href='https://en.wikipedia.org/wiki/Babel,_or_the_Necessity_of_Violence' className='font-semibold link-purple-2 italic'>Babel, or the Necessity of Violence</a> by R.F. Kuang - I cannot recommend this book enough if you are into fantasy with elements of social commentary. When I have time, I like to go exploring and/or hiking. Otherwise, I spend my time admiring how strange my dogs are.
+                                <br/><br/>
+                                <div className="w-5/6 text-right">- Leo Wang</div>
+                            </>) : (<>
+                                <button onClick={() => notifySkillHighlight(null)} className="font-semibold mb-4 text-xl tracking-wider hover:-translate-x-2 transition-transform duration-250"><i className="ri-arrow-left-s-line mr-2 ml-2"></i>Return</button>
+                                <br/>
+                                {titleSubsection.description}
+                            </>)
+                        }
                     </div>
                 </div>
                 <div id="information-contact-link-body" className="mt-4 leading-relaxed text-white text-md tracking-wide w-0 min-w-full">
@@ -203,13 +216,25 @@ export default function Information() {
     ];
 
     const sk = [
-        {header: 'skills', skills: [
-            {name: 'High-Performance Computing', desc: ``},
-            {name: 'Scientific Simulations', desc: ``}
+        {header: 'experiences', skills: [
+            {name: 'NASA', desc: ``},
+            {name: 'NASA App Development Challenge', desc: ``},
+            {name: 'FIRST Tech Challenge', desc: ``},
         ]},
         {header: 'platforms', skills: [
-            {name: 'C#', desc: ``},
-            {name: 'TailwindCSS', desc: `this is a description`}
+            {name: 'TailwindCSS', desc: `this is a description`},
+            {name: 'Unity', desc: ``},
+            {name: 'AWS', desc: ``}
+        ]},
+        {header: 'skills', skills: [
+            {name: 'High-Performance Computing', desc: ``},
+            {name: 'Scientific Simulations', desc: ``},
+            {name: 'Web Development', desc: ``},
+        ]},
+        {header: 'languages', skills: [
+            {name: 'C/C++', desc: ``},
+            {name: 'C#', desc: <p className='font-semibold'>Hello! Thanks for stopping by!</p>},
+            {name: 'TypeScript/JavaScript', desc: ``}
         ]}
     ];
 
@@ -217,18 +242,23 @@ export default function Information() {
     const [skillsShown, setSkillsShown] = useState(true);
 
     function updateSkillHighlight(data: SkillProp | null) {
-        if (data === null) {
-            setHighlightedSkill(data);
-        } else {
-            setHighlightedSkill(data);
+        if (highlightedSkill !== null) {
+            highlightedSkill.element.classList.remove('mr-6');
+            highlightedSkill.element.firstElementChild?.classList.remove('rotate-90');
         }
+        if (data !== null && data.element !== null) {
+            data.element.classList.add('mr-6');
+            data.element.firstElementChild?.classList.add('rotate-90');
+        }
+
+        setHighlightedSkill(data);
     }
 
     return (
          <div className="w-full flex justify-center mt-16">
             <div className="w-full flex gap-8 justify-between">
                 <div className={'h-full shrink-0 w-8'}></div>
-                <About links={li} titleSubsection={highlightedSkill}></About>
+                <About links={li} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}></About>
                 <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => {setSkillsShown(!skillsShown); updateSkillHighlight(null)}} notifySkillHighlight={updateSkillHighlight}></Skills>
             </div>
          </div>

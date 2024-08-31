@@ -83,4 +83,10 @@
     .link-blue-2 {
         @apply underline underline-offset-[3px] decoration-2 decoration-blue-light hover:decoration-blue-bright
     }
+    .link-purple {
+        @apply underline underline-offset-[3px] decoration-1 decoration-purple-light hover:decoration-purple-bright
+    }
+    .link-purple-2 {
+        @apply underline underline-offset-[3px] decoration-2 decoration-purple-light hover:decoration-purple-bright
+    }
 }
