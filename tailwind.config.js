@@ -17,12 +17,17 @@ module.exports = {
         'blue-bright': '#20d6c7',
       },
       animation: {
-        'pulse-main': 'pulse-slow 10s cubic-bezier(0.4, 0, 0.6, 1) infinite'
+        'pulse-main': 'pulse-slow 10s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'appear': 'appear 300ms cubic-bezier(0.4, 0, 0.6, 1) forwards',
+        'appear-delay': 'appear 300ms 150ms cubic-bezier(0.4, 0, 0.6, 1) forwards'
       },
       keyframes: {
         'pulse-slow': {
           '0%, 100%': { opacity: 1 },
           '50%': { opacity: 0.85 }
+        },
+        'appear': {
+          '100%': { transform: 'translateX(0px)', opacity: 1 }
         }
       }
     },

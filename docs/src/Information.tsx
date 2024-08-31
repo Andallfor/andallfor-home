@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useReducer } from 'react';
 
 interface SkillGroupProp {
     groups: SkillGroup[];
     skillsShown: boolean;
     toggleSkillsShown: () => void;
+    notifySkillHighlight: (data: SkillProp) => void;
 }
 
 interface SkillGroup {
@@ -13,10 +14,17 @@ interface SkillGroup {
 
 interface Skill {
     name: string,
-    desc: string | JSX.Element;
+    desc: string;
 }
 
-function Skills({ groups, skillsShown, toggleSkillsShown }: SkillGroupProp) {
+interface SkillProp {
+    element: HTMLElement;
+    header: string;
+    title: string;
+    description: string;
+}
+
+function Skills({ groups, skillsShown, toggleSkillsShown, notifySkillHighlight }: SkillGroupProp) {
     let key = 0;
     let transitionIndex = 0;
 
@@ -43,11 +51,17 @@ function Skills({ groups, skillsShown, toggleSkillsShown }: SkillGroupProp) {
                         <p className="text-4xl text-white fira-code-bold text-right transition-transform ease-in-out duration-[350ms]" style={{transform: getWidth(), transitionDelay: transitionIndex++ * 50 + 'ms'}}>{header.toUpperCase()}</p>
                         {skills.map(({ name, desc }) => (
                             <div key={key++} className="transition-transform ease-in-out duration-[350ms]" style={{transform: getWidth(), transitionDelay: transitionIndex++ * 50 + 'ms'}}>
-                                <button onClick={(e) => console.log(e)} className='w-full'>
-                                    <p className="text-xl text-off-white text-right mt-2 leading-tight">
+                                <button onClick={(e) => notifySkillHighlight({
+                                        element: e.target as HTMLElement,
+                                        header: header,
+                                        title: name,
+                                        description: desc
+                                    })}  className='w-full group flex justify-end mt-2'>
+                                    <p className="text-xl text-off-white text-right leading-tight">
                                         <i className="ri-arrow-down-s-line"></i>
                                         {name}
                                     </p>
+                                    <span className="absolute group-hover:opacity-100 w-1 h-full bg-red-main translate-x-4 opacity-0"></span>
                                 </button>
                             </div>
                         ))}
@@ -55,7 +69,7 @@ function Skills({ groups, skillsShown, toggleSkillsShown }: SkillGroupProp) {
                     </div>
                 ))}
             </div>
-            <div className='h-full shrink-0 flex flex-col justify-between items-center'>
+            <div className='h-full shrink-0 flex flex-col justify-between items-center mr-8'>
                 <div className="h-full bg-off-white w-0.5"></div>
                 <button onClick={toggleSkillsShown} className={'transition-transform duration-200 ' + arrowDir}>
                     <i className={"text-off-white ri-2x p-4 " + arrow}></i>
@@ -66,9 +80,9 @@ function Skills({ groups, skillsShown, toggleSkillsShown }: SkillGroupProp) {
     );
 }
 
-// bro am i doing something wrong???
 interface ContactLinkProp {
     links: ContactLink[];
+    titleSubsection: SkillProp | null;
 }
 
 interface ContactLink {
@@ -94,10 +108,64 @@ function ContactLinkBody({url, urlCover, newSection}: ContactLinkBodyConfig) {
 }
 
 // undefined denotes that there should be a gap between this and the next entry
-function About({links}: ContactLinkProp) {
+function About({ links, titleSubsection }: ContactLinkProp) {
+    // um. it was very late when i coded this.
+
+    function triggerAnimation(e: HTMLElement, a: string, dir: string) {
+        e.classList.remove('animate-appear-delay', 'animate-appear');
+        e.style.animationDirection = dir;
+        e.offsetHeight;
+        e.classList.add(a);
+    }
+
+    const [prevSection, setPrevSection] = useState('');
+    const [prevSubsection, setPrevSubsection] = useState('');
+    const [isSkillShown, setIsSkillShown] = useState(titleSubsection !== null);
+    const [cachedSections, setCachedSections] = useState(['', '']);
+
+    if (titleSubsection !== null) {
+        let didChangeHeader = false;
+        if (prevSection != titleSubsection.header) {
+            const s = document.getElementById('about-section')!;
+            triggerAnimation(s, 'animate-appear', 'normal');
+
+            setPrevSection(titleSubsection.header);
+            didChangeHeader = true;
+        }
+
+        if (prevSubsection != titleSubsection.title) {
+            const s = document.getElementById('about-subsection')!;
+            triggerAnimation(s, didChangeHeader ? 'animate-appear-delay' : 'animate-appear', 'normal');
+
+            setPrevSubsection(titleSubsection.title);
+        }
+    }
+
+    if (isSkillShown !== (titleSubsection !== null)) {
+        if (titleSubsection === null) { // is now not shown, prev was
+            console.log('passed');
+            const s = document.getElementById('about-section')!;
+            const sb = document.getElementById('about-subsection')!;
+
+            triggerAnimation(s, 'animate-appear', 'reverse');
+            triggerAnimation(sb, 'animate-appear', 'reverse');
+
+            setCachedSections([prevSection, prevSubsection]);
+            setPrevSection('');
+            setPrevSubsection('');
+        }
+
+        setIsSkillShown(titleSubsection !== null);
+    }
+
     return (
         <div id="information-main" className="flex flex-col gap-4">
-            <p className="text-6xl text-white fira-code-font align-text-bottom">ABOUT</p>
+            <p id="information-title" className="text-6xl text-white fira-code-font align-text-bottom">C:&#92;ABOUT
+                <span className='text-4xl'>
+                    <span id="about-section" className='opacity-0 -translate-x-64 inline-block'>&nbsp;&#92;&nbsp;{(titleSubsection === null ? cachedSections[0] : prevSection).toUpperCase()}</span>
+                    <span id="about-subsection" className='opacity-0 -translate-x-64 inline-block'>&nbsp;&#92;&nbsp;{(titleSubsection === null ? cachedSections[1] : prevSubsection).toUpperCase()}</span>
+                </span>
+            </p>
             <div className='grid grid-rows-2 grid-flow-col mt-4 gap-y-2' style={{gridTemplateRows: '1fr auto', gridTemplateColumns: '1fr 3fr'}}>
                 <img src="self.jpg"/>
                 <div id="information-contact-link-header" className="mt-4 leading-relaxed text-white text-md tracking-wide text-nowrap">
@@ -141,19 +209,27 @@ export default function Information() {
         ]},
         {header: 'platforms', skills: [
             {name: 'C#', desc: ``},
-            {name: 'TailwindCSS', desc: ``}
+            {name: 'TailwindCSS', desc: `this is a description`}
         ]}
     ];
 
-    const [highlightedSkill, setHighlightedSkill] = useState(false);
+    const [highlightedSkill, setHighlightedSkill] = useState<(SkillProp | null)>(null);
     const [skillsShown, setSkillsShown] = useState(true);
+
+    function updateSkillHighlight(data: SkillProp | null) {
+        if (data === null) {
+            setHighlightedSkill(data);
+        } else {
+            setHighlightedSkill(data);
+        }
+    }
 
     return (
          <div className="w-full flex justify-center mt-16">
             <div className="w-full flex gap-8 justify-between">
-                <div className={'h-full shrink-0 bg-off-white m-8 w-0.5' + (highlightedSkill ? '' : '-translate-x-8')}></div>
-                <About links={li}></About>
-                <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => setSkillsShown(!skillsShown)}></Skills>
+                <div className={'h-full shrink-0 w-8'}></div>
+                <About links={li} titleSubsection={highlightedSkill}></About>
+                <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => {setSkillsShown(!skillsShown); updateSkillHighlight(null)}} notifySkillHighlight={updateSkillHighlight}></Skills>
             </div>
          </div>
     );
