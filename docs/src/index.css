@@ -70,6 +70,11 @@
     mask: var(--soft-mask-vertical), var(--soft-mask-horizontal);
 }
 
+.list-hanging {
+    margin-left: 1.5rem;
+    text-indent: 1.5rem hanging;
+}
+
 @layer components {
     .link-red {
         @apply underline underline-offset-[3px] decoration-1 decoration-red-light hover:decoration-red-bright

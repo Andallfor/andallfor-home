@@ -1,4 +1,5 @@
 import { useEffect, useState, useReducer } from 'react';
+import { Exp_NASA, Exp_FTC } from './descriptions/Experiences';
 
 interface SkillGroupProp {
     groups: SkillGroup[];
@@ -166,7 +167,7 @@ function About({ links, titleSubsection, notifySkillHighlight }: ContactLinkProp
                     <span id="about-subsection" className='opacity-0 -translate-x-64 inline-block'>&nbsp;&#92;&nbsp;{(titleSubsection === null ? cachedSections[1] : prevSubsection).toUpperCase()}</span>
                 </span>
             </p>
-            <div className='grid grid-rows-2 grid-flow-col mt-4 gap-y-2' style={{gridTemplateRows: '1fr auto', gridTemplateColumns: '1fr 3fr'}}>
+            <div className='grid grid-rows-2 grid-flow-col mt-4 gap-y-6' style={{gridTemplateRows: '1fr auto', gridTemplateColumns: '1fr 3fr'}}>
                 <img src="self.jpg"/>
                 <div id="information-contact-link-header" className="mt-4 leading-relaxed text-white text-md tracking-wide text-nowrap">
                     {links.map(({ id, icon, title, newSection }) => (
@@ -181,12 +182,13 @@ function About({ links, titleSubsection, notifySkillHighlight }: ContactLinkProp
                         {
                             (titleSubsection === null) ? (<>
                                 <p className='font-semibold'>Hello! Thanks for stopping by!</p><br/>
-                                &nbsp;&nbsp;&nbsp;&nbsp;My name is Leo Wang, an undergraduate studying computer science at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a> as part of the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College. I have the most experience in high-performance scientific simulations and large-scale (billions (!)) data processing/visualization, especially as a result of my <a target='_blank' href='https://github.com/Andallfor/MVT' className='font-semibold link-blue-2'>3 year long internship with NASA</a>. I primarily work with C#, though I also have experience with TypeScript, C++, Python, and Java.
-                                <br/><br/>
-                                &nbsp;&nbsp;&nbsp;&nbsp;To the right is an abridged list of the technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are not sorted in any particular order.
-                                <br/><br/>
-                                &nbsp;&nbsp;&nbsp;&nbsp;Outside of programming, I enjoy metal model building (the <a target='_blank' className='font-semibold link-purple-2' href='https://www.metalearth.com/premium'>Metal Earth</a> series is great!), astronomy, and reading. Currently, my favorite book is <a target='_blank' href='https://en.wikipedia.org/wiki/Babel,_or_the_Necessity_of_Violence' className='font-semibold link-purple-2 italic'>Babel, or the Necessity of Violence</a> by R.F. Kuang - I cannot recommend this book enough if you are into fantasy with elements of social commentary. When I have time, I like to go exploring and/or hiking. Otherwise, I spend my time admiring how strange my dogs are.
-                                <br/><br/>
+                                <div className='indent-6'>
+                                    My name is Leo Wang, an undergraduate studying computer science at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a> as part of the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College. I have the most experience in high-performance scientific simulations and large-scale (billions (!)) data processing/visualization, especially as a result of my <a target='_blank' href='https://github.com/Andallfor/MVT' className='font-semibold link-red-2'>3 year long internship with NASA</a>. The moon background image on this page was created using the code I wrote for the internship.
+                                </div><br/>
+                                <div className='indent-6'>To the right is an abridged list of technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are not sorted in any particular order.</div><br/>
+                                <div className='indent-6'>
+                                    Outside of programming, I enjoy metal model building (the <a target='_blank' className='font-semibold link-purple-2' href='https://www.metalearth.com/premium'>Metal Earth</a> series is great!), astronomy, and reading. Currently, my favorite book is <a target='_blank' href='https://en.wikipedia.org/wiki/Babel,_or_the_Necessity_of_Violence' className='font-semibold link-purple-2 italic'>Babel, or the Necessity of Violence</a> by R.F. Kuang - I cannot recommend this book enough if you are into fantasy with elements of social commentary. When I have the time, I like to go exploring and/or hiking. Otherwise, I spend my time admiring how strange my dogs are.
+                                </div><br/>
                                 <div className="w-5/6 text-right">- Leo Wang</div>
                             </>) : (<>
                                 <button onClick={() => notifySkillHighlight(null)} className="font-semibold mb-4 text-xl tracking-wider hover:-translate-x-2 transition-transform duration-250"><i className="ri-arrow-left-s-line mr-2 ml-2"></i>Return</button>
@@ -217,24 +219,25 @@ export default function Information() {
 
     const sk = [
         {header: 'experiences', skills: [
-            {name: 'NASA', desc: ``},
-            {name: 'NASA App Development Challenge', desc: ``},
-            {name: 'FIRST Tech Challenge', desc: ``},
+            {name: 'NASA', desc: <Exp_NASA></Exp_NASA>},
+            {name: 'FIRST Tech Challenge', desc: <Exp_FTC></Exp_FTC>},
+        ]},
+        {header: 'skills', skills: [
+            {name: 'Program Optimization', desc: ``},
+            {name: 'Large-Scale Data Processing', desc: ``},
+            {name: 'Web Development', desc: ``},
         ]},
         {header: 'platforms', skills: [
             {name: 'TailwindCSS', desc: `this is a description`},
+            {name: 'React', desc: `this is a description`},
             {name: 'Unity', desc: ``},
             {name: 'AWS', desc: ``}
-        ]},
-        {header: 'skills', skills: [
-            {name: 'High-Performance Computing', desc: ``},
-            {name: 'Scientific Simulations', desc: ``},
-            {name: 'Web Development', desc: ``},
         ]},
         {header: 'languages', skills: [
             {name: 'C/C++', desc: ``},
             {name: 'C#', desc: <p className='font-semibold'>Hello! Thanks for stopping by!</p>},
-            {name: 'TypeScript/JavaScript', desc: ``}
+            {name: 'TypeScript/JavaScript', desc: ``},
+            {name: 'Python', desc: ``}
         ]}
     ];
 
@@ -246,6 +249,7 @@ export default function Information() {
             highlightedSkill.element.classList.remove('mr-6');
             highlightedSkill.element.firstElementChild?.classList.remove('rotate-90');
         }
+
         if (data !== null && data.element !== null) {
             data.element.classList.add('mr-6');
             data.element.firstElementChild?.classList.add('rotate-90');
@@ -258,8 +262,8 @@ export default function Information() {
          <div className="w-full flex justify-center mt-16">
             <div className="w-full flex gap-8 justify-between">
                 <div className={'h-full shrink-0 w-8'}></div>
-                <About links={li} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}></About>
-                <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => {setSkillsShown(!skillsShown); updateSkillHighlight(null)}} notifySkillHighlight={updateSkillHighlight}></Skills>
+                <About links={[]} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}></About>
+                <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => setSkillsShown(!skillsShown)} notifySkillHighlight={updateSkillHighlight}></Skills>
             </div>
          </div>
     );

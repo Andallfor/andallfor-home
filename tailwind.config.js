@@ -1,19 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["docs/index.html", "docs/src/{*.tsx,*.css}"],
+  content: ["docs/index.html", "docs/src/{*.tsx,*.css}", "docs/src/descriptions{*.tsx,*.css}"],
   theme: {
     extend: {
       colors: {
         // https://lospec.com/palette-list/aap-64
         'black-main': '#060608',
         'purple-main': '#793a80',
-        'red-main': '#73172d',
+        'red-main': '#b4202a',
         'blue-main': '#143464',
         'off-white': '#dae0ea',
         'purple-light': '#bc4a9b',
         'purple-bright': '#e86a73',
-        'red-light': '#b4202a',
-        'red-bright': '#df3e23',
+        'red-light': '#df3e23',
+        'red-bright': '#fa6a0a',
         'blue-light': '#249fde',
         'blue-bright': '#20d6c7',
       },
