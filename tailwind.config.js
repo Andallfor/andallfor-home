@@ -16,6 +16,8 @@ module.exports = {
         'red-bright': '#fa6a0a',
         'blue-light': '#249fde',
         'blue-bright': '#20d6c7',
+        'gray-main': '#e3e6ff',
+        'black-light': '#e3e6ff',
       },
       animation: {
         'pulse-main': 'pulse-slow 10s cubic-bezier(0.4, 0, 0.6, 1) infinite',

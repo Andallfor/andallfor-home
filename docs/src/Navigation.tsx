@@ -45,7 +45,12 @@ export default function Navigation() {
         <div id="navigation-main" className="w-full flex mt-8 sticky top-4 z-50 select-none">
             <div className="absolute w-full top-0 h-[calc(100%+1rem+2rem)] -translate-y-8 backdrop-blur-md -z-50"></div>
             <div className="ml-8 flex gap-3 text-white translate-y-[0.075em]">
-                <a><i className="ri-home-2-fill ri-xl"></i></a>
+                <button onClick={() => {
+                    const anchor = document.getElementById('landing-main');
+                    if (anchor !== undefined) {
+                        anchor?.scrollIntoView({behavior: 'smooth'});
+                    } else console.error("TODO! implement redirecting to index.html#landing-main");
+                }}><i className="ri-home-2-fill ri-xl"></i></button>
                 <div className="w-[24px]"></div>
                 <div className="w-[24px]"></div>
                 <div className="w-[24px]"></div>
@@ -65,7 +70,7 @@ export default function Navigation() {
                             link?.addEventListener('touchend', () => link?.classList.add('peer'), {once: true});
                         } else console.error("TODO! need to implement redirecting to index.html#information-main");
                     }}/>
-                    <NavigationButton name='blog' highlightColor="bg-blue-main" img='barnesHutCrop.png' action="https://example.com/"/>
+                    <NavigationButton name='contact' highlightColor="bg-blue-main" img='barnesHutCrop.png' action="https://example.com/"/>
                 </div>
             </div>
 
