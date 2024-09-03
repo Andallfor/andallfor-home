@@ -6,10 +6,10 @@ export default function Footer() {
                 <p className='text-neutral-400'>Leo Wang</p>
                 <div className='flex justify-between gap-4 flex-grow fira-code-font'>
                     <div></div>
+                    <div></div>
                     <a href='mailto:leozwang2005@gmail.com' target='_blank' className=''>Email</a>
                     <a href='https://github.com/Andallfor' target='_blank' className=''>Github</a>
-                    <a href='https://www.linkedin.com/in/leo-wang-765251292/' target='_blank' className=''>LinkedIn</a>
-                    <a href='' target='_blank' className='text-red-600'>Resume</a>
+                    <a href='https://www.linkedin.com/in/leo-z-wang' target='_blank' className=''>LinkedIn</a>
                 </div>
                 <p className='tracking-tight text-base text-neutral-500'>*/</p>
             </div>

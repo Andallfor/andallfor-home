@@ -78,7 +78,7 @@ export default function Navigation() {
                 {/* ri-size does not update bounds, only the scale so have to manually offset it */}
                 <a href="https://github.com/Andallfor/andallfor-home" target="_blank" title="Website Source Code"><i className="ri-code-s-slash-fill ri-xl"></i></a>
                 <a href="https://github.com/Andallfor" target="_blank" title="Github"><i className="ri-github-fill ri-xl"></i></a>
-                <a href="https://www.linkedin.com/in/leo-wang-765251292/" target="_blank" title="Linkedin"><i className="ri-linkedin-box-fill ri-xl"></i></a>
+                <a href="https://www.linkedin.com/in/leo-z-wang" target="_blank" title="Linkedin"><i className="ri-linkedin-box-fill ri-xl"></i></a>
                 <a href="mailto:leozwang2005@gmail.com" target="_blank" title="Email (Personal)"><i className="ri-mail-send-fill ri-xl"></i></a>
             </div>
         </div>

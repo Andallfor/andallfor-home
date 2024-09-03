@@ -1,5 +1,7 @@
-import { useEffect, useState, useReducer } from 'react';
+import { useState } from 'react';
 import { Exp_NASA, Exp_FTC } from './descriptions/Experiences';
+import { Skl_DataProcessing, Skl_Optimization, Skl_WebDev } from './descriptions/Skills';
+import { Plf_TailwindReact } from './descriptions/Platforms';
 
 interface SkillGroupProp {
     groups: SkillGroup[];
@@ -213,7 +215,7 @@ export default function Information() {
         {id: 0, icon: 'ri-mail-star-fill',     title: 'Personal Email (Preferred)',    url: 'mailto:leozwang2005@gmail.com',                   urlCover: 'leozwang2005@gmail.com',             newSection: false},
         {id: 1, icon: 'ri-mail-fill',          title: 'College Email',                 url: 'mailto:leowang@terpmail.umd.edu',                 urlCover: 'leowang@terpmail.umd.edu',           newSection: false},
         {id: 2, icon: 'ri-github-fill',        title: 'Github',                        url: 'https://github.com/Andallfor',                    urlCover: 'github.com/Andallfor',               newSection: true },
-        {id: 3, icon: 'ri-linkedin-box-fill',  title: 'LinkedIn',                      url: 'https://www.linkedin.com/in/leo-wang-765251292/', urlCover: 'linkedin.com/in/leo-wang-765251292', newSection: true },
+        {id: 3, icon: 'ri-linkedin-box-fill',  title: 'LinkedIn',                      url: 'https://www.linkedin.com/in/leo-z-wang', urlCover: 'linkedin.com/in/leo-wang-765251292', newSection: true },
         {id: 4, icon: 'ri-file-list-2-fill',   title: 'Resume',                        url: '',                                                urlCover: 'Download',                           newSection: false}
     ];
 
@@ -223,20 +225,19 @@ export default function Information() {
             {name: 'FIRST Tech Challenge', desc: <Exp_FTC></Exp_FTC>},
         ]},
         {header: 'skills', skills: [
-            {name: 'Program Optimization', desc: ``},
-            {name: 'Large-Scale Data Processing', desc: ``},
-            {name: 'Web Development', desc: ``},
+            {name: 'Software Optimization', desc: <Skl_Optimization></Skl_Optimization>},
+            {name: 'Large-Scale Data Processing', desc: <Skl_DataProcessing></Skl_DataProcessing>},
+            {name: 'Web Development', desc: <Skl_WebDev></Skl_WebDev>},
         ]},
         {header: 'platforms', skills: [
-            {name: 'TailwindCSS', desc: `this is a description`},
-            {name: 'React', desc: `this is a description`},
+            {name: 'TailwindCSS & React', desc: <Plf_TailwindReact></Plf_TailwindReact>},
             {name: 'Unity', desc: ``},
             {name: 'AWS', desc: ``}
         ]},
         {header: 'languages', skills: [
-            {name: 'C/C++', desc: ``},
+            {name: 'C++', desc: ``},
             {name: 'C#', desc: <p className='font-semibold'>Hello! Thanks for stopping by!</p>},
-            {name: 'TypeScript/JavaScript', desc: ``},
+            {name: 'TypeScript & JavaScript', desc: ``},
             {name: 'Python', desc: ``}
         ]}
     ];
@@ -247,11 +248,13 @@ export default function Information() {
     function updateSkillHighlight(data: SkillProp | null) {
         if (highlightedSkill !== null) {
             highlightedSkill.element.classList.remove('mr-6');
+            highlightedSkill.element.classList.remove('text-white');
             highlightedSkill.element.firstElementChild?.classList.remove('rotate-90');
         }
 
         if (data !== null && data.element !== null) {
             data.element.classList.add('mr-6');
+            data.element.classList.add('text-white');
             data.element.firstElementChild?.classList.add('rotate-90');
         }
 

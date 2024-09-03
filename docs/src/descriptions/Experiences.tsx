@@ -4,15 +4,15 @@ export function Exp_NASA() {
             <div className='indent-6'>
                 I interned at <a href='https://www.nasa.gov/goddard/' className='font-semibold link-blue-2'>NASA's Goddard Space Flight Center</a> as part of the <a href='https://www.nasa.gov/directorates/somd/space-communications-navigation-program/scan-internship-project-sip/' className='font-semibold link-blue-2' target='_blank'>Space Communications and Navigation (SCaN) Internship Program (SIP)</a> for three years. During this time, my team and I worked on created the <a href='https://github.com/Andallfor/MVT' target='_blank' className='font-semibold link-red-2'>Mission Visualization Toolkit (MVT)</a> program. At the end of the 3rd year, we published a paper on this project to the <a href='https://ieeexplore.ieee.org/document/10521148' target='_blank' className='font-semibold link-red-2'>IEEE Aerospace Conference</a>.
             </div><div className='indent-6 mt-1'>
-                Specifically, MVT is a highly optimized simulation of planetary terrain and orbiting satellites to aid in the generation of access calls, which are the time windows during which an orbiting satellite can communicate to a planetary ground station. This project was created using the <a href='https://unity.com/' target='_blank' className='link-blue-2 font-semibold'>Unity Engine</a>, making use of their 3D mesh and raycasting systems.
+                Specifically, MVT is a highly optimized simulation of planetary terrain and orbiting satellites to aid in the generation of access calls, which are the time windows during which an orbiting satellite can communicate to a planetary ground station. This project was created using the <a href='https://unity.com/' target='_blank' className='link-blue-2 font-semibold'>Unity Engine</a>, making use of their 3D mesh and raycasting systems. Benchmarking showed that the terrain system was capable of generating upwards of 13,000,000 points per second<sup>1</sup>.
             </div><br/>
             I was the project lead. My responsibilities notably included: <br/>
-            <div className='list-hanging'>1. designing and implementing the entire project structure, including relevant base types (i.e. planetary bodies, ground stations, etc.),</div>
-            <div className='list-hanging'>2. creating the entirety of the planetary terrain system<sup>1</sup></div>
+            <div className='list-hanging'>1. designing and implementing the entire project structure, including relevant base types (i.e. planetary bodies, ground stations, etc.) and most core systems,</div>
+            <div className='list-hanging'>2. creating the entirety of the planetary terrain system<sup>2</sup></div>
             <div className='list-hanging'>3. setting up the online environment during the 2nd and 3rd years.</div><br/>
             <div className='font-semibold'>Related Projects:
                 <p className='indent-6'>
-                    <a href='https://github.com/vickicarrica/Mission-Visualization-Toolkit' target='_blank' className='link-red-2'>Year 1</a><sup>2</sup>
+                    <a href='https://github.com/vickicarrica/Mission-Visualization-Toolkit' target='_blank' className='link-red-2'>Year 1</a><sup>3</sup>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <a href='https://github.com/Andallfor/MVT' target='_blank' className='link-red-2'>Year 2/3</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
@@ -22,8 +22,9 @@ export function Exp_NASA() {
                 </p>
             </div><br/>
             <div className='text-xs'>
-                1 Please see the Program Optimization and Large-Scale Data Processing sections for more detail.<br/>
-                2 Project was built using Unity's source control system; this Github repository is a public build for Github Pages to pull from.<br/>
+                1 Please see the linked IEEE paper, section 5 for more information.<br/>
+                2 Please see the Software Optimization and Large-Scale Data Processing sections for more detail.<br/>
+                3 Project was built using Unity's source control system; this Github repository is a public build for Github Pages to pull from.<br/>
             </div>
         </div>
     );
