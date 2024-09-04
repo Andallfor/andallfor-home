@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Exp_NASA, Exp_FTC } from './descriptions/Experiences';
 import { Skl_DataProcessing, Skl_Optimization, Skl_WebDev } from './descriptions/Skills';
 import { Plf_TailwindReact } from './descriptions/Platforms';
+import { Lng_CSharp } from './descriptions/Languages';
 
 interface SkillGroupProp {
     groups: SkillGroup[];
@@ -187,7 +188,7 @@ function About({ links, titleSubsection, notifySkillHighlight }: ContactLinkProp
                                 <div className='indent-6'>
                                     My name is Leo Wang, an undergraduate studying computer science at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a> as part of the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College. I have the most experience in high-performance scientific simulations and large-scale (billions (!)) data processing/visualization, especially as a result of my <a target='_blank' href='https://github.com/Andallfor/MVT' className='font-semibold link-red-2'>3 year long internship with NASA</a>. The moon background image on this page was created using the code I wrote for the internship.
                                 </div><br/>
-                                <div className='indent-6'>To the right is an abridged list of technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are not sorted in any particular order.</div><br/>
+                                <div className='indent-6'>To the right is an abridged list of technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are not sorted in any particular order. <span className='link-blue-2'>Blue links</span> will link to outside sources, such as technologies or context. <span className='link-red-2'>Red links</span> will refer to something I have created, such as a project.</div><br/>
                                 <div className='indent-6'>
                                     Outside of programming, I enjoy metal model building (the <a target='_blank' className='font-semibold link-purple-2' href='https://www.metalearth.com/premium'>Metal Earth</a> series is great!), astronomy, and reading. Currently, my favorite book is <a target='_blank' href='https://en.wikipedia.org/wiki/Babel,_or_the_Necessity_of_Violence' className='font-semibold link-purple-2 italic'>Babel, or the Necessity of Violence</a> by R.F. Kuang - I cannot recommend this book enough if you are into fantasy with elements of social commentary. When I have the time, I like to go exploring and/or hiking. Otherwise, I spend my time admiring how strange my dogs are.
                                 </div><br/>
@@ -235,8 +236,8 @@ export default function Information() {
             {name: 'AWS', desc: ``}
         ]},
         {header: 'languages', skills: [
+            {name: 'C#', desc: <Lng_CSharp></Lng_CSharp>},
             {name: 'C++', desc: ``},
-            {name: 'C#', desc: <p className='font-semibold'>Hello! Thanks for stopping by!</p>},
             {name: 'TypeScript & JavaScript', desc: ``},
             {name: 'Python', desc: ``}
         ]}
