@@ -32,6 +32,9 @@ module.exports = {
         'appear': {
           '100%': { transform: 'translateX(0px)', opacity: 1 }
         }
+      },
+      screens: {
+        'xs': '480px'
       }
     },
   },
