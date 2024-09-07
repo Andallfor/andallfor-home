@@ -106,4 +106,10 @@
     .link-purple-2 {
         @apply underline underline-offset-[3px] decoration-2 decoration-purple-light hover:decoration-purple-bright
     }
+    .text-content {
+        @apply 2xl:text-lg text-base
+    }
+    .text-sidebar {
+        @apply 2xl:text-xl text-base
+    }
 }

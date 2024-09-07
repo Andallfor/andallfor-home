@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Exp_NASA, Exp_FTC } from './descriptions/Experiences';
 import { Skl_DataProcessing, Skl_Optimization, Skl_WebDev } from './descriptions/Skills';
 import { Plf_TailwindReact } from './descriptions/Platforms';
@@ -7,8 +7,10 @@ import { Lng_CSharp } from './descriptions/Languages';
 interface SkillGroupProp {
     groups: SkillGroup[];
     skillsShown: boolean;
+    collapsed: {[header: string]: boolean};
     toggleSkillsShown: () => void;
     notifySkillHighlight: (data: SkillProp | null) => void;
+    notifyCollapse: (header: string) => void;
 }
 
 interface SkillGroup {
@@ -17,7 +19,7 @@ interface SkillGroup {
 }
 
 interface Skill {
-    name: string,
+    name: string;
     desc: string | JSX.Element;
 }
 
@@ -28,7 +30,7 @@ interface SkillProp {
     description: string | JSX.Element;
 }
 
-function Skills({ groups, skillsShown, toggleSkillsShown, notifySkillHighlight }: SkillGroupProp) {
+function Skills({ groups, skillsShown, collapsed, toggleSkillsShown, notifySkillHighlight, notifyCollapse }: SkillGroupProp) {
     let key = 0;
     let transitionIndex = 0;
 
@@ -52,8 +54,12 @@ function Skills({ groups, skillsShown, toggleSkillsShown, notifySkillHighlight }
             <div className='text-nowrap'>
                 {groups.map(({ header, skills }) => (
                     <div key={key++}>
-                        <p className="text-4xl text-white fira-code-bold text-right transition-transform ease-in-out duration-[350ms]" style={{transform: getWidth(), transitionDelay: transitionIndex++ * 50 + 'ms'}}>{header.toUpperCase()}</p>
-                        {skills.map(({ name, desc }) => (
+                        <button style={{transform: getWidth(), transitionDelay: transitionIndex++ * 50 + 'ms'}} className='transition-transform ease-in-out duration-[350ms] w-full' disabled={collapsed['ignore']} onClick={() => notifyCollapse(header)}>
+                            <p className="text-base md:text-xl 2xl:text-4xl text-white fira-code-bold text-right">
+                                {header.toUpperCase()}
+                            </p>
+                        </button>
+                        {collapsed[header] ? <></> : skills.map(({ name, desc }) => (
                             <div key={key++} className="transition-transform ease-in-out duration-[350ms]" style={{transform: getWidth(), transitionDelay: transitionIndex++ * 50 + 'ms'}}>
                                 <button onClick={(e) => notifySkillHighlight({
                                         element: (e.target as HTMLElement).firstChild as HTMLElement, // expected to be the <p> child node
@@ -61,7 +67,7 @@ function Skills({ groups, skillsShown, toggleSkillsShown, notifySkillHighlight }
                                         title: name,
                                         description: desc
                                     })} className='w-full group flex justify-end pt-2'>
-                                    <p className="text-xl text-off-white text-right leading-tight pointer-events-none transition-[margin-right]">
+                                    <p className="text-sidebar text-off-white text-right leading-tight pointer-events-none transition-[margin-right] text-sm xs:text-base">
                                         <i className="ri-arrow-down-s-line inline-block"></i>
                                         {name}
                                     </p>
@@ -69,14 +75,14 @@ function Skills({ groups, skillsShown, toggleSkillsShown, notifySkillHighlight }
                                 </button>
                             </div>
                         ))}
-                        <div className='h-8'></div>
+                        <div className='h-4 xs:h-8'></div>
                     </div>
                 ))}
             </div>
-            <div className='h-full shrink-0 flex flex-col justify-between items-center mr-8'>
+            <div className='h-full shrink-0 flex flex-col justify-between items-center xs:mr-8'>
                 <div className="h-full bg-off-white w-0.5"></div>
                 <button onClick={toggleSkillsShown} className={'transition-transform duration-200 ' + arrowDir}>
-                    <i className={"text-off-white ri-2x p-4 " + arrow}></i>
+                    <i className={"text-off-white ri-xl md:ri-2x xs:p-4 " + arrow}></i>
                 </button>
                 <div className="h-full bg-off-white w-0.5"></div>
             </div>
@@ -164,47 +170,29 @@ function About({ links, titleSubsection, notifySkillHighlight }: ContactLinkProp
 
     return (
         <div id="information-main" className="flex flex-col gap-4">
-            <p id="information-title" className="text-6xl text-white fira-code-font align-text-bottom">C:&#92;ABOUT
-                <span className='text-4xl'>
+            <p id="information-title" className="text-4xl 2xl:text-6xl text-white fira-code-font align-text-bottom">C:&#92;ABOUT
+                <span className='text-2xl 2xl:text-4xl'>
                     <span id="about-section" className='opacity-0 -translate-x-64 inline-block'>&nbsp;&#92;&nbsp;{(titleSubsection === null ? cachedSections[0] : prevSection).toUpperCase()}</span>
                     <span id="about-subsection" className='opacity-0 -translate-x-64 inline-block'>&nbsp;&#92;&nbsp;{(titleSubsection === null ? cachedSections[1] : prevSubsection).toUpperCase()}</span>
                 </span>
             </p>
-            <div className='grid grid-rows-2 grid-flow-col mt-4 gap-y-6' style={{gridTemplateRows: '1fr auto', gridTemplateColumns: '1fr 3fr'}}>
-                <img src="self.jpg"/>
-                <div id="information-contact-link-header" className="mt-4 leading-relaxed text-white text-md tracking-wide text-nowrap">
-                    {links.map(({ id, icon, title, newSection }) => (
-                        <ContactLinkTitle key={id} icon={icon} title={title} newSection={newSection}></ContactLinkTitle>
-                    ))}
-                </div>
-                <div className="bg-black-main/30 w-full h-full rounded-sm text-white relative backdrop-blur-[2px]">
-                    <div className="pl-4 pr-4 pt-4 pb-2 text-lg tracking-wide leading-normal">
-                        {/* red links are personal (i.e. github) 
-                            blue is academic related
-                            purple is misc/flavor*/}
-                        {
-                            (titleSubsection === null) ? (<>
-                                <p className='font-semibold'>Hello! Thanks for stopping by!</p><br/>
-                                <div className='indent-6'>
-                                    My name is Leo Wang, an undergraduate studying computer science at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a> as part of the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College. I have the most experience in high-performance scientific simulations and large-scale (billions (!)) data processing/visualization, especially as a result of my <a target='_blank' href='https://github.com/Andallfor/MVT' className='font-semibold link-red-2'>3 year long internship with NASA</a>. The moon background image on this page was created using the code I wrote for the internship.
-                                </div><br/>
-                                <div className='indent-6'>To the right is an abridged list of technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are not sorted in any particular order. <span className='link-blue-2'>Blue links</span> will link to outside sources, such as technologies or context. <span className='link-red-2'>Red links</span> will refer to something I have created, such as a project.</div><br/>
-                                <div className='indent-6'>
-                                    Outside of programming, I enjoy metal model building (the <a target='_blank' className='font-semibold link-purple-2' href='https://www.metalearth.com/premium'>Metal Earth</a> series is great!), astronomy, and reading. Currently, my favorite book is <a target='_blank' href='https://en.wikipedia.org/wiki/Babel,_or_the_Necessity_of_Violence' className='font-semibold link-purple-2 italic'>Babel, or the Necessity of Violence</a> by R.F. Kuang - I cannot recommend this book enough if you are into fantasy with elements of social commentary. When I have the time, I like to go exploring and/or hiking. Otherwise, I spend my time admiring how strange my dogs are.
-                                </div><br/>
-                                <div className="w-5/6 text-right">- Leo Wang</div>
-                            </>) : (<>
-                                <button onClick={() => notifySkillHighlight(null)} className="font-semibold mb-4 text-xl tracking-wider hover:-translate-x-2 transition-transform duration-250"><i className="ri-arrow-left-s-line mr-2 ml-2"></i>Return</button>
-                                <br/>
-                                {titleSubsection.description}
-                            </>)
-                        }
-                    </div>
-                </div>
-                <div id="information-contact-link-body" className="mt-4 leading-relaxed text-white text-md tracking-wide w-0 min-w-full">
-                    {links.map(({ id, url, urlCover, newSection }) => (
-                        <ContactLinkBody key={id + links.length} url={url} urlCover={urlCover} newSection={newSection}></ContactLinkBody>
-                    ))}
+            <div className="bg-black-main/30 w-full h-full rounded-sm text-white relative backdrop-blur-[2px] col-span-4">
+                <div className="pl-4 pr-4 pt-4 pb-2 text-content tracking-wide leading-normal">
+                    {(titleSubsection === null) ? (<>
+                        <p className='font-semibold'>Hello! Thanks for stopping by!</p><br/>
+                        <div className='indent-6'>
+                            My name is Leo Wang, an undergraduate studying computer science at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a> as part of the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College. I have the most experience in high-performance scientific simulations and large-scale (billions (!)) data processing/visualization, especially as a result of my <a target='_blank' href='https://github.com/Andallfor/MVT' className='font-semibold link-red-2'>3 year long internship with NASA</a>. The moon background image on this page was created using the code I wrote for the internship.
+                        </div><br/>
+                        <div className='indent-6'>To the right is an abridged list of technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are not sorted in any particular order. <span className='link-blue-2'>Blue links</span> will link to outside sources, such as technologies or context. <span className='link-red-2'>Red links</span> will refer to something I have created, such as a project.</div><br/>
+                        <div className='indent-6'>
+                            Outside of programming, I enjoy metal model building (the <a target='_blank' className='font-semibold link-purple-2' href='https://www.metalearth.com/premium'>Metal Earth</a> series is great!), astronomy, and reading. Currently, my favorite book is <a target='_blank' href='https://en.wikipedia.org/wiki/Babel,_or_the_Necessity_of_Violence' className='font-semibold link-purple-2 italic'>Babel, or the Necessity of Violence</a> by R.F. Kuang - I cannot recommend this book enough if you are into fantasy with elements of social commentary. When I have the time, I like to go exploring and/or hiking. Otherwise, I spend my time admiring how strange my dogs are.
+                        </div><br/>
+                        <div className="w-5/6 text-right">- Leo Wang</div>
+                    </>) : (<>
+                        <button onClick={() => notifySkillHighlight(null)} className="font-semibold mb-4 text-xl tracking-wider hover:-translate-x-2 transition-transform duration-250"><i className="ri-arrow-left-s-line mr-2 ml-2"></i>Return</button>
+                        <br/>
+                        {titleSubsection.description}
+                    </>)}
                 </div>
             </div>
         </div>
@@ -212,6 +200,16 @@ function About({ links, titleSubsection, notifySkillHighlight }: ContactLinkProp
 }
 
 export default function Information() {
+    const [highlightedSkill, setHighlightedSkill] = useState<(SkillProp | null)>(null);
+    const [skillsShown, setSkillsShown] = useState(true);
+    const [collapsed, setCollapse] = useState<{[header: string]: boolean}>({
+        'experiences': false,
+        'skills': false,
+        'platforms': false,
+        'languages': false,
+        'ignore': false,
+    });
+
     const li = [
         {id: 0, icon: 'ri-mail-star-fill',     title: 'Personal Email (Preferred)',    url: 'mailto:leozwang2005@gmail.com',                   urlCover: 'leozwang2005@gmail.com',             newSection: false},
         {id: 1, icon: 'ri-mail-fill',          title: 'College Email',                 url: 'mailto:leowang@terpmail.umd.edu',                 urlCover: 'leowang@terpmail.umd.edu',           newSection: false},
@@ -243,9 +241,6 @@ export default function Information() {
         ]}
     ];
 
-    const [highlightedSkill, setHighlightedSkill] = useState<(SkillProp | null)>(null);
-    const [skillsShown, setSkillsShown] = useState(true);
-
     function updateSkillHighlight(data: SkillProp | null) {
         if (highlightedSkill !== null) {
             highlightedSkill.element.classList.remove('mr-6');
@@ -262,12 +257,57 @@ export default function Information() {
         setHighlightedSkill(data);
     }
 
+    function updateCollapse(header: string) {
+        if (collapsed['ignore']) return;
+        let copy = {...collapsed};
+        copy[header] = !copy[header];
+        setCollapse(copy);
+    }
+
+    function checkCollapse() {
+        let copy = {...collapsed};
+        if (window.innerWidth >= 1536 && !copy['ignore']) {
+            Object.keys(copy).forEach((k) => copy[k] = false);
+            copy['ignore'] = true;
+            setCollapse(copy);
+        } else if (window.innerWidth < 1536 && copy['ignore']) {
+            Object.keys(copy).forEach((k) => copy[k] = true);
+            copy['ignore'] = false;
+            setCollapse(copy);
+        }
+    }
+
+    useEffect(() => {
+        checkCollapse();
+        window.addEventListener('resize', () => checkCollapse());
+    });
+
     return (
          <div className="w-full flex justify-center mt-16">
-            <div className="w-full flex gap-8 justify-between">
-                <div className={'h-full shrink-0 w-8'}></div>
-                <About links={[]} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}></About>
-                <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => setSkillsShown(!skillsShown)} notifySkillHighlight={updateSkillHighlight}></Skills>
+            <div className="w-full md:mr-8 md:ml-8 mr-2 ml-2">
+                <div className='flex justify-between w-full'>
+                    <div className='flex'>
+                        <div className='flex-grow-0 relative'>
+                            {(window.innerWidth < 768 ?
+                              <img src="selfMobile.jpg" className='h-full absolute max-w-fit'/> :
+                              <img src="self.jpg" className='h-full absolute max-w-fit'/>)}
+                        </div>
+                    </div>
+                    <Skills 
+                        groups={sk}
+                        skillsShown={skillsShown}
+                        toggleSkillsShown={() => setSkillsShown(!skillsShown)}
+                        notifySkillHighlight={updateSkillHighlight}
+                        notifyCollapse={updateCollapse}
+                        collapsed={collapsed}
+                    ></Skills>
+                </div>
+                <div></div>
+                <About 
+                    links={[]}
+                    titleSubsection={highlightedSkill}
+                    notifySkillHighlight={updateSkillHighlight}
+                ></About>
             </div>
          </div>
     );
