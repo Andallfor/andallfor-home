@@ -50,8 +50,8 @@ function Skills({ groups, skillsShown, collapsed, toggleSkillsShown, notifySkill
     }
 
     return (
-        <div id="skills-main" className='flex ml-8'>
-            <div className='text-nowrap'>
+        <div id="skills-main" className='flex ml-8 min-h-[270px]'>
+            <div className='text-nowrap mr-1'>
                 {groups.map(({ header, skills }) => (
                     <div key={key++}>
                         <button style={{transform: getWidth(), transitionDelay: transitionIndex++ * 50 + 'ms'}} className='transition-transform ease-in-out duration-[350ms] w-full' disabled={collapsed['ignore']} onClick={() => notifyCollapse(header)}>
@@ -67,7 +67,7 @@ function Skills({ groups, skillsShown, collapsed, toggleSkillsShown, notifySkill
                                         title: name,
                                         description: desc
                                     })} className='w-full group flex justify-end pt-2'>
-                                    <p className="text-sidebar text-off-white text-right leading-tight pointer-events-none transition-[margin-right] text-sm xs:text-base">
+                                    <p className="text-sidebar text-off-white text-right leading-tight pointer-events-none transition-[margin-right] text-sm xs:text-xl">
                                         <i className="ri-arrow-down-s-line inline-block"></i>
                                         {name}
                                     </p>
@@ -82,7 +82,10 @@ function Skills({ groups, skillsShown, collapsed, toggleSkillsShown, notifySkill
             <div className='h-full shrink-0 flex flex-col justify-between items-center xs:mr-8'>
                 <div className="h-full bg-off-white w-0.5"></div>
                 <button onClick={toggleSkillsShown} className={'transition-transform duration-200 ' + arrowDir}>
-                    <i className={"text-off-white ri-xl md:ri-2x xs:p-4 " + arrow}></i>
+                    {/* tailwind breakpoints dont play nice with remix icon sizing */}
+                    {(window.innerWidth > 768) ? 
+                        <i className={"text-off-white ri-2x xs:p-4 " + arrow}></i> :
+                        <i className={"text-off-white ri-lg xs:p-4 " + arrow}></i>}
                 </button>
                 <div className="h-full bg-off-white w-0.5"></div>
             </div>
@@ -163,6 +166,7 @@ function About({ links, titleSubsection, notifySkillHighlight }: ContactLinkProp
             setCachedSections([prevSection, prevSubsection]);
             setPrevSection('');
             setPrevSubsection('');
+            setTimeout(() => setCachedSections(['', '']), 300);
         }
 
         setIsSkillShown(titleSubsection !== null);
@@ -170,8 +174,8 @@ function About({ links, titleSubsection, notifySkillHighlight }: ContactLinkProp
 
     return (
         <div id="information-main" className="flex flex-col gap-4">
-            <p id="information-title" className="text-4xl 2xl:text-6xl text-white fira-code-font align-text-bottom">C:&#92;ABOUT
-                <span className='text-2xl 2xl:text-4xl'>
+            <p id="information-title" className="text-3xl sm:text-4xl 2xl:text-6xl text-white fira-code-font align-text-bottom mt-4">C:&#92;ABOUT
+                <span className='text-lg sm:text-2xl 2xl:text-4xl'>
                     <span id="about-section" className='opacity-0 -translate-x-64 inline-block'>&nbsp;&#92;&nbsp;{(titleSubsection === null ? cachedSections[0] : prevSection).toUpperCase()}</span>
                     <span id="about-subsection" className='opacity-0 -translate-x-64 inline-block'>&nbsp;&#92;&nbsp;{(titleSubsection === null ? cachedSections[1] : prevSubsection).toUpperCase()}</span>
                 </span>
@@ -189,10 +193,14 @@ function About({ links, titleSubsection, notifySkillHighlight }: ContactLinkProp
                         </div><br/>
                         <div className="w-5/6 text-right">- Leo Wang</div>
                     </>) : (<>
-                        <button onClick={() => notifySkillHighlight(null)} className="font-semibold mb-4 text-xl tracking-wider hover:-translate-x-2 transition-transform duration-250"><i className="ri-arrow-left-s-line mr-2 ml-2"></i>Return</button>
+                        <button onClick={() => notifySkillHighlight(null)} className="font-semibold mb-4 text-xl tracking-wider hover:-translate-x-2 transition-transform duration-250"><i className="ri-arrow-left-s-line mr-2 ml-2"></i>Back</button>
                         <br/>
                         {titleSubsection.description}
                     </>)}
+                </div>
+
+                <div className='w-full flex justify-center mt-12 xs:hidden'>
+                    <button onClick={() => document.getElementById('information-scroll-anchor')!.scrollIntoView({behavior: 'smooth'})} className="font-semibold mb-4 text-xl tracking-wider"><i className="ri-arrow-up-s-line mr-2 ml-2"></i>Return to Top</button>
                 </div>
             </div>
         </div>
@@ -260,7 +268,10 @@ export default function Information() {
     function updateCollapse(header: string) {
         if (collapsed['ignore']) return;
         let copy = {...collapsed};
-        copy[header] = !copy[header];
+        let c = !copy[header];
+        Object.keys(copy).forEach((k) => (k == 'ignore' ? {} : copy[k] = true));
+        copy[header] = c;
+
         setCollapse(copy);
     }
 
@@ -293,7 +304,7 @@ export default function Information() {
                               <img src="self.jpg" className='h-full absolute max-w-fit'/>)}
                         </div>
                     </div>
-                    <Skills 
+                    <Skills
                         groups={sk}
                         skillsShown={skillsShown}
                         toggleSkillsShown={() => setSkillsShown(!skillsShown)}
