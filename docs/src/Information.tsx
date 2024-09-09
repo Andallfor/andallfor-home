@@ -50,7 +50,7 @@ function Skills({ groups, skillsShown, collapsed, toggleSkillsShown, notifySkill
     }
 
     return (
-        <div id="skills-main" className='flex ml-8 min-h-[270px]'>
+        <div id="skills-main" className='flex ml-8 min-h-[270px] h-full'>
             <div className='text-nowrap mr-1'>
                 {groups.map(({ header, skills }) => (
                     <div key={key++}>
@@ -67,7 +67,7 @@ function Skills({ groups, skillsShown, collapsed, toggleSkillsShown, notifySkill
                                         title: name,
                                         description: desc
                                     })} className='w-full group flex justify-end pt-2'>
-                                    <p className="text-sidebar text-off-white text-right leading-tight pointer-events-none transition-[margin-right] text-sm xs:text-xl">
+                                    <p className="text-sidebar text-off-white text-right leading-tight pointer-events-none transition-transform text-sm xs:text-xl">
                                         <i className="ri-arrow-down-s-line inline-block"></i>
                                         {name}
                                     </p>
@@ -79,15 +79,15 @@ function Skills({ groups, skillsShown, collapsed, toggleSkillsShown, notifySkill
                     </div>
                 ))}
             </div>
-            <div className='h-full shrink-0 flex flex-col justify-between items-center xs:mr-8'>
-                <div className="h-full bg-off-white w-0.5"></div>
+            <div className='h-full shrink-0 flex flex-col justify-between items-center xs:mr-8' style={{minHeight: 'inherit'}}>
+                <div className="h-full bg-off-white w-0.5 flex-grow"></div>
                 <button onClick={toggleSkillsShown} className={'transition-transform duration-200 ' + arrowDir}>
                     {/* tailwind breakpoints dont play nice with remix icon sizing */}
                     {(window.innerWidth > 768) ? 
                         <i className={"text-off-white ri-2x xs:p-4 " + arrow}></i> :
                         <i className={"text-off-white ri-lg xs:p-4 " + arrow}></i>}
                 </button>
-                <div className="h-full bg-off-white w-0.5"></div>
+                <div className="h-full bg-off-white w-0.5 flex-grow"></div>
             </div>
         </div>
     );
@@ -199,7 +199,7 @@ function About({ links, titleSubsection, notifySkillHighlight }: ContactLinkProp
                     </>)}
                 </div>
 
-                <div className='w-full flex justify-center mt-12 xs:hidden'>
+                <div className='w-full flex justify-center mt-12 2xl:hidden'>
                     <button onClick={() => document.getElementById('information-scroll-anchor')!.scrollIntoView({behavior: 'smooth'})} className="font-semibold mb-4 text-xl tracking-wider"><i className="ri-arrow-up-s-line mr-2 ml-2"></i>Return to Top</button>
                 </div>
             </div>
@@ -251,13 +251,13 @@ export default function Information() {
 
     function updateSkillHighlight(data: SkillProp | null) {
         if (highlightedSkill !== null) {
-            highlightedSkill.element.classList.remove('mr-6');
+            highlightedSkill.element.classList.remove('md:-translate-x-6', '-translate-x-3');
             highlightedSkill.element.classList.remove('text-white');
             highlightedSkill.element.firstElementChild?.classList.remove('rotate-90');
         }
 
         if (data !== null && data.element !== null) {
-            data.element.classList.add('mr-6');
+            data.element.classList.add('md:-translate-x-6', '-translate-x-3');
             data.element.classList.add('text-white');
             data.element.firstElementChild?.classList.add('rotate-90');
         }
@@ -289,36 +289,38 @@ export default function Information() {
     }
 
     useEffect(() => {
-        checkCollapse();
+        document.addEventListener('load', () => checkCollapse());
         window.addEventListener('resize', () => checkCollapse());
     });
 
     return (
          <div className="w-full flex justify-center mt-16">
             <div className="w-full md:mr-8 md:ml-8 mr-2 ml-2">
-                <div className='flex justify-between w-full'>
-                    <div className='flex'>
-                        <div className='flex-grow-0 relative'>
-                            {(window.innerWidth < 768 ?
-                              <img src="selfMobile.jpg" className='h-full absolute max-w-fit'/> :
-                              <img src="self.jpg" className='h-full absolute max-w-fit'/>)}
+                {window.innerWidth < 1536 ? (<>
+                    <div className='flex justify-between w-full'>
+                        <div className='flex'>
+                            <div className='flex-grow-0 relative'>
+                                {window.innerWidth < 736 ? <img src="selfMobile.jpg" className='h-full absolute max-w-fit'/> : <img src="self.jpg" className='h-full absolute max-w-fit'/>}
+                            </div>
+                        </div>
+                        <div className='h-full'>
+                            <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => setSkillsShown(!skillsShown)} notifySkillHighlight={updateSkillHighlight} notifyCollapse={updateCollapse} collapsed={collapsed}/>
                         </div>
                     </div>
-                    <Skills
-                        groups={sk}
-                        skillsShown={skillsShown}
-                        toggleSkillsShown={() => setSkillsShown(!skillsShown)}
-                        notifySkillHighlight={updateSkillHighlight}
-                        notifyCollapse={updateCollapse}
-                        collapsed={collapsed}
-                    ></Skills>
-                </div>
-                <div></div>
-                <About 
-                    links={[]}
-                    titleSubsection={highlightedSkill}
-                    notifySkillHighlight={updateSkillHighlight}
-                ></About>
+                    <About links={[]} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}/>
+                </>) : <>
+                    <div className='w-full flex justify-between gap-4'>
+                        <div className='flex-grow-[0.5]'>
+                            <img src="self.jpg" className=''/>
+                        </div>
+                        <div className='flex-grow-[3] min-w-[60%]'>
+                            <About links={[]} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}/>
+                        </div>
+                        <div className=''>
+                            <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => setSkillsShown(!skillsShown)} notifySkillHighlight={updateSkillHighlight} notifyCollapse={updateCollapse} collapsed={collapsed}/>
+                        </div>
+                    </div>
+                </>}
             </div>
          </div>
     );
