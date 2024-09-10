@@ -47,9 +47,19 @@
 
 .fade-bottom {
     --mask: linear-gradient(to bottom, 
-        rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 40%, 
-        rgba(0,0,0, 0) 90%, rgba(0,0,0, 0) 0
+        rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 90%, 
+        rgba(0,0,0, 0) 100%, rgba(0,0,0, 0) 0
     ) 100% 50% / 100% 100% repeat-x;
+
+    -webkit-mask: var(--mask); 
+    mask: var(--mask);
+}
+
+.fade-left {
+    --mask: linear-gradient(to left, 
+        rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 70%,
+        rgba(0,0,0, 0) 100%, rgba(0,0,0, 0) 0
+    ) 100% 50% / 100% 100% repeat-y;
 
     -webkit-mask: var(--mask); 
     mask: var(--mask);

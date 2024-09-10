@@ -34,11 +34,12 @@ module.exports = {
         }
       },
       screens: {
-        'xs': '480px'
+        'xs': '480px',
+        '3xl': '1800px'
       },
       fontSize: {
         '2xs': '0.625rem',
-      }
+      },
     },
   },
   plugins: [],
