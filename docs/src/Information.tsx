@@ -50,7 +50,7 @@ export default function Information() {
 
     function updateSkillHighlight(data: SkillProp | null) {
         if (window.innerWidth >= 768) {
-            setSkillsShown(false);
+            notifySkillsShownChange(false);
         }
 
         if (highlightedSkill !== null) {
@@ -91,6 +91,14 @@ export default function Information() {
         }
     }
 
+    function notifySkillsShownChange(change: boolean) {
+        setSkillsShown(change);
+
+        const blocker = document.getElementById("skills-blocker");
+        if (!change) blocker?.classList.replace('opacity-100', 'opacity-0');
+        else blocker?.classList.replace('opacity-0', 'opacity-100');
+    }
+
     useEffect(() => {
         checkCollapse(); // this might be causing some lag, but registering to onload doesnt seem to work
         window.addEventListener('resize', () => checkCollapse());
@@ -99,28 +107,28 @@ export default function Information() {
     return (
          <div className="w-full flex justify-center mt-16">
             <div className="w-full md:mr-8 md:ml-8 mr-2 ml-2">
-                {window.innerWidth < 768 ? (<>
+                {window.innerWidth < 1024 ? (<>
                     <div className='flex justify-between w-full'>
                         <div className='flex'>
                             <div className='flex-grow-0 relative'>
-                                {window.innerWidth < 768 ? <img src="selfMobile.jpg" className='h-full absolute max-w-fit'/> : <img src="self.jpg" className='h-full absolute max-w-fit'/>}
+                                <img src="self.jpg" className='h-full absolute max-w-fit'/>
                             </div>
                         </div>
                         <div className='h-full'>
-                            <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => setSkillsShown(!skillsShown)} notifySkillHighlight={updateSkillHighlight} notifyCollapse={updateCollapse} collapsed={collapsed}/>
+                            <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => notifySkillsShownChange(!skillsShown)} notifySkillHighlight={updateSkillHighlight} notifyCollapse={updateCollapse} collapsed={collapsed}/>
                         </div>
                     </div>
                     <About links={[]} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}/>
                 </>) : <>
                     <div className='w-full flex justify-between gap-4'>
-                        <div className='flex-grow-[0.5]'>
+                        <div className='flex-grow-[0.5] min-w-[270px]'>
                             <img src="self.jpg" className=''/>
                         </div>
-                        <div className='flex-grow-[3] min-w-[65%]'>
+                        <div className='flex-grow-[3] w-[70%] min-w-[60%] xl:min-w-[70%]'>
                             <About links={[]} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}/>
                         </div>
                         <div className=''>
-                            <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => setSkillsShown(!skillsShown)} notifySkillHighlight={updateSkillHighlight} notifyCollapse={updateCollapse} collapsed={collapsed}/>
+                            <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => notifySkillsShownChange(!skillsShown)} notifySkillHighlight={updateSkillHighlight} notifyCollapse={updateCollapse} collapsed={collapsed}/>
                         </div>
                     </div>
                 </>}

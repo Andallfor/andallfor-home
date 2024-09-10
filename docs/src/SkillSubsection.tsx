@@ -45,22 +45,18 @@ export default function Skills({ groups, skillsShown, collapsed, toggleSkillsSho
     }
 
     return (
-        <div id="skills-main" className='flex ml-8 min-h-[270px] h-full relative'>
+        <div id="skills-main" className='flex min-h-[270px] h-full relative'>
+            <div id="skills-blocker" className="w-screen h-[calc(100%+32px)] backdrop-blur-sm absolute top-[-16px] right-0 hidden md:block opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none"></div>
             <div className='text-nowrap mr-1 absolute -translate-x-full'>
                 {groups.map(({ header, skills }) => (
                     <div key={key++} className="relative">
-                        <div className="transition-transform ease-in-out h-4 xs:h-8" style={{transform: getWidth(), transitionDelay: transitionIndex * 25 + 'ms'}}>
-                            <div className="hidden md:block h-full bg-black-main w-full fade-left scale-x-150 origin-right"></div>
-                        </div>
                         <button style={{transform: getWidth(), transitionDelay: transitionIndex++ * 25 + 'ms'}} className='transition-transform ease-in-out duration-[350ms] w-full' disabled={collapsed['ignore']} onClick={() => notifyCollapse(header)}>
-                            <div className="hidden md:block w-full h-full bg-black-main absolute fade-left scale-x-150 origin-right -z-10"></div>
                             <p className="text-base md:text-xl 2xl:text-4xl text-white fira-code-bold text-right">
                                 {header.toUpperCase()}
                             </p>
                         </button>
                         {collapsed[header] ? <></> : skills.map(({ name, desc }) => (
                             <div key={key++} className="transition-transform ease-in-out duration-[350ms]" style={{transform: getWidth(), transitionDelay: transitionIndex++ * 25 + 'ms'}}>
-                                <div className="w-full h-[calc(100%+1px)] hidden md:block bg-black-main absolute fade-left scale-x-150 origin-right -z-20"></div>
                                 <button onClick={(e) => notifySkillHighlight({
                                         element: (e.target as HTMLElement).firstChild as HTMLElement, // expected to be the <p> child node
                                         header: header,
@@ -75,10 +71,11 @@ export default function Skills({ groups, skillsShown, collapsed, toggleSkillsSho
                                 </button>
                             </div>
                         ))}
+                        <div className="h-4 xs:h-8"></div>
                     </div>
                 ))}
             </div>
-            <div className='h-full shrink-0 flex flex-col justify-between items-center xs:mr-8' style={{minHeight: 'inherit'}}>
+            <div className='h-full shrink-0 flex flex-col justify-between items-center z-50' style={{minHeight: 'inherit'}}>
                 <div className="h-full bg-off-white w-0.5 flex-grow"></div>
                 <button onClick={toggleSkillsShown} className={'z-50 transition-transform duration-200 ' + arrowDir}>
                     {/* tailwind breakpoints dont play nice with remix icon sizing */}
