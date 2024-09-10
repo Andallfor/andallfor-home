@@ -1,6 +1,13 @@
+import Brief from "./Brief"
+
 export function Lng_CSharp() {
     return (
         <div>
+            <div className="w-full flex justify-evenly">
+                <Brief title="experience" desc="4+ Years"></Brief>
+                <Brief title="skill" desc="Advanced"></Brief>
+                <Brief title="platforms" desc=".NET, Unity"></Brief>
+            </div><br/>
             <div className="indent-6">
                 <a href="https://learn.microsoft.com/en-us/dotnet/csharp/" target="_blank" className="link-blue-2 font-semibold">C#</a> is my strongest language; I have been developing with it for over 4 years (since 2020!). The majority of my experience is based within the <a href="https://unity.com/" target="_blank" className="link-blue-2 font-semibold">Unity ecosystem</a>, though I have basic <a href="https://dotnet.microsoft.com/en-us/" target="_blank" className="link-blue-2 font-semibold">.NET experience</a>. I have a deep understanding of both high level topics (LINQ, generics, tasks/async, dynamic types, etc) and low level topics (unsafe keyword, .dll linking, pointers, preprocessor directives, etc).
             </div><br/>

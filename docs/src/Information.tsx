@@ -92,11 +92,19 @@ export default function Information() {
     }
 
     function notifySkillsShownChange(change: boolean) {
-        setSkillsShown(change);
-
         const blocker = document.getElementById("skills-blocker");
-        if (!change) blocker?.classList.replace('opacity-100', 'opacity-0');
-        else blocker?.classList.replace('opacity-0', 'opacity-100');
+        const container = document.getElementById('skills-container');
+        if (!change) {
+            (blocker?.firstChild as HTMLElement).classList.replace('pointer-events-auto', 'pointer-events-none');
+            blocker?.classList.replace('opacity-100', 'opacity-0');
+            container?.classList.replace('pointer-events-auto', 'pointer-events-none');
+        } else {
+            (blocker?.firstChild as HTMLElement).classList.replace('pointer-events-none', 'pointer-events-auto');
+            blocker?.classList.replace('opacity-0', 'opacity-100');
+            container?.classList.replace('pointer-events-none', 'pointer-events-auto');
+        }
+
+        setSkillsShown(change);
     }
 
     useEffect(() => {

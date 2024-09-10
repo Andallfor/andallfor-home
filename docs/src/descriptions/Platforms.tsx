@@ -1,6 +1,12 @@
+import Brief from "./Brief";
+
 export function Plf_TailwindReact() {
     return (
         <div>
+            <div className="w-full flex justify-evenly">
+                <Brief title="experience" desc="1+ Years"></Brief>
+                <Brief title="skill" desc="Intermediate"></Brief>
+            </div><br/>
             <p className="indent-6">
                 I have used <a className="link-blue-2 font-semibold" target="_blank" href="https://tailwindcss.com/">TailwindCSS</a> to create two websites, one for my <a href='https://teammetalpipe.org/' target='_blank' className='link-red-2 font-semibold'>robotics team</a> and one being this <a href='https://github.com/Andallfor/andallfor-home' target='_blank' className='link-red-2 font-semibold'>website</a>. Both pages are entirely styled by me, with all components on this site similarly being created by me. All components on the robotics page besides the image carousel and timeline slider were also created by me. I have experience with deeper features (both Tailwind and general CSS), such as <a href='https://tailwindcss.com/docs/hover-focus-and-other-states#pseudo-classes' target='_blank' className='link-blue-2 font-semibold'>pseudo-classes</a>, <a href='https://tailwindcss.com/docs/hover-focus-and-other-states#custom-modifiers' target='_blank' className='link-blue-2 font-semibold'>attribute selectors</a>, <a href="https://tailwindcss.com/docs/functions-and-directives" className="font-semibold link-blue-2" target="_blank">functions and directives</a>, and <a className="font-semibold link-blue-2" href="https://tailwindcss.com/docs/responsive-design" target="_blank">(re)designing for mobile devices</a>.
             </p><br/>

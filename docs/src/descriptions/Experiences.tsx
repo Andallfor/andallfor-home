@@ -1,6 +1,13 @@
+import Brief from "./Brief";
+
 export function Exp_NASA() {
     return (
         <div>
+            <div className="w-full flex justify-evenly">
+                <Brief title="duration" desc="2020-2023 (Summers)"></Brief>
+                <Brief title="role" desc="Lead Developer"></Brief>
+                <Brief title="platforms" desc="C#, Unity"></Brief>
+            </div><br/>
             <div className='indent-6'>
                 I interned at <a href='https://www.nasa.gov/goddard/' className='font-semibold link-blue-2'>NASA's Goddard Space Flight Center</a> as part of the <a href='https://www.nasa.gov/directorates/somd/space-communications-navigation-program/scan-internship-project-sip/' className='font-semibold link-blue-2' target='_blank'>Space Communications and Navigation (SCaN) Internship Program (SIP)</a> for three years. During this time, my team and I worked on created the <a href='https://github.com/Andallfor/MVT' target='_blank' className='font-semibold link-red-2'>Mission Visualization Toolkit (MVT)</a> program. At the end of the 3rd year, we published a paper on this project to the <a href='https://ieeexplore.ieee.org/document/10521148' target='_blank' className='font-semibold link-red-2'>IEEE Aerospace Conference</a>.
             </div><div className='indent-6 mt-1'>
@@ -17,8 +24,6 @@ export function Exp_NASA() {
                     <a href='https://github.com/Andallfor/MVT' target='_blank' className='link-red-2'>Year 2/3</a>
                     &nbsp;&nbsp;&nbsp;&nbsp;
                     <a href='https://ieeexplore.ieee.org/document/10521148' target='_blank' className='link-red-2'>Paper for IEEE AeroConf</a>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <a href='' target='_blank' className=''>Gallery</a>
                 </p>
             </div><br/>
             <div className='text-xs'>
@@ -33,6 +38,11 @@ export function Exp_NASA() {
 export function Exp_FTC() {
     return (
         <div>
+            <div className="w-full flex justify-evenly">
+                <Brief title="duration" desc="2021-2024 (School Year)"></Brief>
+                <Brief title="role" desc="Software Head"></Brief>
+                <Brief title="platforms" desc="Java, Python"></Brief>
+            </div><br/>
             <p className="indent-6">
                 I competed in the <a href="https://www.firstinspires.org/robotics/ftc" target="_blank" className="font-semibold link-blue-2">FIRST Tech Challenge (FTC)</a> as the lead programmer on my team. FTC is an international high-school robotics competition where teams build a small (18" x 18") robot to complete different challenges each season. The main components I designed were the vision systems (<a href="https://developer.vuforia.com/home" className="font-semibold link-blue-2">Vuforia-based</a> object detection and <a href="https://github.com/OpenFTC/EasyOpenCV" target="_blank" className="font-semibold link-blue-2">OpenCV-based</a> April Tag detection), multi-threading/optimizations, and the entirety of the <a href="https://teammetalpipe.org/" className="font-semibold link-red-2" target="_blank">team's website</a>. I worked with a secondary programmer to design the robot controls and autonomous sections. Finally, I also mentored the programmer on the team, who later became the lead programmer after I graduated.
             </p><br/>

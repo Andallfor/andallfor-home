@@ -38,16 +38,19 @@ export default function Skills({ groups, skillsShown, collapsed, toggleSkillsSho
         const sk = document.getElementById('skills-main');
         if (sk === null) return 'translateX(0)';
 
+        const sc = document.getElementById('skills-container')!;
         const rect = sk.getBoundingClientRect();
-        const d = document.body.scrollWidth - rect.left + sk.firstElementChild!.getBoundingClientRect().width + 32; // 32 is just buffer
+        const d = document.body.scrollWidth - rect.left + sc.getBoundingClientRect().width + 32; // 32 is just buffer
 
         return 'translateX(' + d + 'px)';
     }
 
     return (
         <div id="skills-main" className='flex min-h-[270px] h-full relative'>
-            <div id="skills-blocker" className="w-screen h-[calc(100%+32px)] backdrop-blur-sm absolute top-[-16px] right-0 hidden md:block opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none"></div>
-            <div className='text-nowrap mr-1 absolute -translate-x-full'>
+            <div id="skills-blocker" className="w-screen h-[calc(100%+32px)] backdrop-blur-sm absolute top-[-16px] right-0 opacity-0 transition-opacity duration-300 ease-in-out pointer-events-none">
+                <button className="z-10 pointer-events-none absolute w-full h-full" onClick={toggleSkillsShown}></button>
+            </div>
+            <div id='skills-container' className='text-nowrap mr-1 absolute -translate-x-full pointer-events-none'>
                 {groups.map(({ header, skills }) => (
                     <div key={key++} className="relative">
                         <button style={{transform: getWidth(), transitionDelay: transitionIndex++ * 25 + 'ms'}} className='transition-transform ease-in-out duration-[350ms] w-full' disabled={collapsed['ignore']} onClick={() => notifyCollapse(header)}>

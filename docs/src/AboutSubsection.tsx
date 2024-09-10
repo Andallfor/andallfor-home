@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SkillProp } from "./SkillSubsection";
+import Brief from "./descriptions/Brief";
 
 interface ContactLinkProp {
     links: ContactLink[];
@@ -91,6 +92,11 @@ export default function About({ links, titleSubsection, notifySkillHighlight }: 
             <div className="bg-black-main/30 w-full h-full rounded-sm text-white relative backdrop-blur-[2px] col-span-4">
                 <div className="pl-4 pr-4 pt-4 pb-2 text-content tracking-wide leading-normal">
                     {(titleSubsection === null) ? (<>
+                        <br/><div className="w-full flex justify-evenly">
+                            <Brief title="experience" desc="4+ Years"></Brief> {/* 6+ if based on when i started to code. 4+ if starting from NASA */}
+                            <Brief title="primary language" desc="C#"></Brief>
+                            <Brief title="role" desc="Backend Engineer"></Brief>
+                        </div><br/>
                         <p className='font-semibold'>Hello! Thanks for stopping by!</p><br/>
                         <div className='indent-6'>
                             My name is Leo Wang, an undergraduate studying computer science at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a> as part of the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College. I have the most experience in high-performance scientific simulations and large-scale (billions (!)) data processing/visualization, especially as a result of my <a target='_blank' href='https://github.com/Andallfor/MVT' className='font-semibold link-red-2'>3 year long internship with NASA</a>. The moon background image on this page was created using the code I wrote for the internship.
