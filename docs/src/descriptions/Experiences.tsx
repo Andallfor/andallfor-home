@@ -26,7 +26,7 @@ export function Exp_NASA() {
                     <a href='https://ieeexplore.ieee.org/document/10521148' target='_blank' className='link-red-2'>Paper for IEEE AeroConf</a>
                 </p>
             </div><br/>
-            <div className='text-xs'>
+            <div className='text-footnote'>
                 1 Please see the linked IEEE paper, section 5 for more information.<br/>
                 2 Please see the Software Optimization and Large-Scale Data Processing sections for more detail.<br/>
                 3 Project was built using Unity's source control system; this Github repository is a public build for Github Pages to pull from.<br/>
@@ -59,7 +59,7 @@ export function Exp_FTC() {
                     <a href='https://teammetalpipe.org/' target='_blank' className='link-red-2'>Team Website</a>
                 </p>
             </div><br/>
-            <div className='text-xs'>
+            <div className='text-footnote'>
                 1 Best overall team.<br/>
                 2 Best designed robot.<br/>
                 3 Best code (primarily for the autonomous sections).<br/>

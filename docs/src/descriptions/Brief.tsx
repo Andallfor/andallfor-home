@@ -17,7 +17,7 @@ export default function Brief({title, desc}: BriefProp) {
     return (
         <div>
             <i className={iconMap[title] + " mr-2"}></i>
-            <span className="text-xl">{desc}</span>
-            <p className="text-xs dm-mono-light text-off-white mr-2">{title.toUpperCase()}</p>
+            <span className="2xl:text-xl sm:text-lg text-xs">{desc}</span>
+            <p className="text-footnote dm-mono-light text-off-white mr-2">{title.toUpperCase()}</p>
         </div>);
 }

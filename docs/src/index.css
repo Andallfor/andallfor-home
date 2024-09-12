@@ -117,9 +117,15 @@
         @apply underline underline-offset-[3px] decoration-2 decoration-purple-light hover:decoration-purple-bright
     }
     .text-content {
-        @apply 2xl:text-lg text-base
+        @apply 2xl:text-lg sm:text-base text-sm
     }
     .text-sidebar {
-        @apply 2xl:text-xl text-base
+        @apply 2xl:text-xl sm:text-base text-sm
+    }
+    .text-footnote {
+        @apply sm:text-xs text-2xs
+    }
+    .text-header {
+        @apply 2xl:text-xl sm:text-lg text-base
     }
 }

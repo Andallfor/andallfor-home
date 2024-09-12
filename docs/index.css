@@ -667,8 +667,15 @@ video {
 }
 
 .text-content {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .text-content {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 @media (min-width: 1536px) {
@@ -679,12 +686,49 @@ video {
 }
 
 .text-sidebar {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .text-sidebar {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
 }
 
 @media (min-width: 1536px) {
   .text-sidebar {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+}
+
+.text-footnote {
+  font-size: 0.625rem;
+}
+
+@media (min-width: 640px) {
+  .text-footnote {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+}
+
+.text-header {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .text-header {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .text-header {
     font-size: 1.25rem;
     line-height: 1.75rem;
   }
@@ -832,10 +876,6 @@ video {
 
 .mt-\[48rem\] {
   margin-top: 48rem;
-}
-
-.block {
-  display: block;
 }
 
 .inline-block {
@@ -1240,11 +1280,6 @@ video {
   line-height: 1.25rem;
 }
 
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-}
-
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
@@ -1572,12 +1607,28 @@ video {
     margin-top: -4rem;
   }
 
+  .sm\:mr-2 {
+    margin-right: 0.5rem;
+  }
+
+  .sm\:ml-2 {
+    margin-left: 0.5rem;
+  }
+
   .sm\:block {
     display: block;
   }
 
   .sm\:gap-16 {
     gap: 4rem;
+  }
+
+  .sm\:pr-4 {
+    padding-right: 1rem;
+  }
+
+  .sm\:pl-4 {
+    padding-left: 1rem;
   }
 
   .sm\:text-2xl {
@@ -1598,6 +1649,11 @@ video {
   .sm\:text-base {
     font-size: 1rem;
     line-height: 1.5rem;
+  }
+
+  .sm\:text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
   }
 
   .sm\:text-sm {

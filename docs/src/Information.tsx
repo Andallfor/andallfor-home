@@ -15,7 +15,9 @@ export default function Information() {
         'platforms': false,
         'languages': false,
         'ignore': false,
+        'didAlreadyUpdate': false
     });
+    const [doesNeedUpdate, setDoesNeedUpdate] = useState(true);
 
     const li = [
         {id: 0, icon: 'ri-mail-star-fill',     title: 'Personal Email (Preferred)',    url: 'mailto:leozwang2005@gmail.com',                   urlCover: 'leozwang2005@gmail.com',             newSection: false},
@@ -49,9 +51,7 @@ export default function Information() {
     ];
 
     function updateSkillHighlight(data: SkillProp | null) {
-        if (window.innerWidth >= 768) {
-            notifySkillsShownChange(false);
-        }
+        notifySkillsShownChange(false);
 
         if (highlightedSkill !== null) {
             highlightedSkill.element.classList.remove('md:-translate-x-6', '-translate-x-3');
@@ -80,13 +80,15 @@ export default function Information() {
 
     function checkCollapse() {
         let copy = {...collapsed};
-        if (window.innerWidth >= 768 && !copy['ignore']) {
+        if (window.innerWidth >= 768 && (!copy['ignore'] || !copy['didAlreadyUpdate'])) {
             Object.keys(copy).forEach((k) => copy[k] = false);
             copy['ignore'] = true;
+            copy['didAlreadyUpdate'] = true;
             setCollapse(copy);
-        } else if (window.innerWidth < 768 && copy['ignore']) {
+        } else if (window.innerWidth < 768 && (copy['ignore'] || !copy['didAlreadyUpdate'])) {
             Object.keys(copy).forEach((k) => copy[k] = true);
             copy['ignore'] = false;
+            copy['didAlreadyUpdate'] = true;
             setCollapse(copy);
         }
     }
@@ -108,13 +110,22 @@ export default function Information() {
     }
 
     useEffect(() => {
-        checkCollapse(); // this might be causing some lag, but registering to onload doesnt seem to work
-        window.addEventListener('resize', () => checkCollapse());
-    });
+        if (doesNeedUpdate) {
+            notifySkillsShownChange(false);
+            checkCollapse();
+    
+            window.addEventListener('resize', () => {
+                checkCollapse();
+                setDoesNeedUpdate(true);
+            });
+    
+            setDoesNeedUpdate(false);
+        }
+    }, [doesNeedUpdate]);
 
     return (
          <div className="w-full flex justify-center mt-16">
-            <div className="w-full md:mr-8 md:ml-8 mr-2 ml-2">
+            <div className="w-full md:mr-8 md:ml-8 sm:mr-2 sm:ml-2">
                 {window.innerWidth < 1024 ? (<>
                     <div className='flex justify-between w-full'>
                         <div className='flex'>

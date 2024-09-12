@@ -25,7 +25,7 @@ export function Lng_CSharp() {
                     <a href='https://github.com/Andallfor/NFA-To-DFA' target='_blank' className='link-red-2'>NFA to DFA Converter</a><sup>1</sup>
                 </p>
             </div><br/>
-            <div className='text-xs'>
+            <div className='text-footnote'>
                 1 Non-finite automata to deterministic finite automata.
             </div>
         </div>

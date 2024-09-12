@@ -14,7 +14,7 @@ export function Skl_WebDev() {
                     <a href='https://github.com/Andallfor/andallfor-home' target='_blank' className='link-red-2'>This Site's Source Code</a>
                 </p>
             </div><br/>
-            <div className='text-xs'>
+            <div className='text-footnote'>
                 1 Please see the AWS section for more information.<br/>
             </div>
         </div>
@@ -46,7 +46,7 @@ export function Skl_Optimization() {
                     &nbsp;&nbsp;&nbsp;&nbsp;
                 </p>
             </div><br/>
-            <div className='text-xs'>
+            <div className='text-footnote'>
                 <p className="text-hanging">1 Please see the NASA section for more information.</p>
                 <p className="text-hanging">2 For the second year of the internship, I was required to process the billions of points that represented the moon's surface, while the third year I needed to process the hundreds of millions of points surrounding a few points of interest on earth. Both years required the system to be able to simulate tens to hundreds of millions of points at once.</p>
                 3 Average frame time was 230ms.

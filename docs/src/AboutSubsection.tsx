@@ -83,7 +83,7 @@ export default function About({ links, titleSubsection, notifySkillHighlight }: 
 
     return (
         <div id="information-main" className="flex flex-col gap-4 w-full">
-            <p id="information-title" className="text-3xl sm:text-4xl 2xl:text-6xl text-white fira-code-font align-text-bottom mt-4">C:&#92;ABOUT
+            <p id="information-title" className="text-3xl sm:text-4xl 2xl:text-6xl text-white fira-code-font align-text-bottom mt-4 ml-2">C:&#92;ABOUT
                 <span className='text-lg sm:text-2xl 2xl:text-4xl'>
                     <span id="about-section" className='opacity-0 -translate-x-64 inline-block'>&nbsp;&#92;&nbsp;{(titleSubsection === null ? cachedSections[0] : prevSection).toUpperCase()}</span>
                     <span id="about-subsection" className='opacity-0 -translate-x-64 inline-block'>&nbsp;&#92;&nbsp;{(titleSubsection === null ? cachedSections[1] : prevSubsection).toUpperCase()}</span>
@@ -101,20 +101,20 @@ export default function About({ links, titleSubsection, notifySkillHighlight }: 
                         <div className='indent-6'>
                             My name is Leo Wang, an undergraduate studying computer science at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a> as part of the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College. I have the most experience in high-performance scientific simulations and large-scale (billions (!)) data processing/visualization, especially as a result of my <a target='_blank' href='https://github.com/Andallfor/MVT' className='font-semibold link-red-2'>3 year long internship with NASA</a>. The moon background image on this page was created using the code I wrote for the internship.
                         </div><br/>
-                        <div className='indent-6'>To the right is an abridged list of technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are not sorted in any particular order. <span className='link-blue-2'>Blue links</span> will link to outside sources, such as technologies or context. <span className='link-red-2'>Red links</span> will refer to something I have created, such as a project.</div><br/>
+                        <div className='indent-6'>To the right {window.innerWidth < 768 ? 'of my portrait' : ''} is an abridged list of technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are not sorted in any particular order. <span className='link-blue-2'>Blue links</span> will link to outside sources, such as technologies or context. <span className='link-red-2'>Red links</span> will refer to something I have created, such as a project.</div><br/>
                         <div className='indent-6'>
                             Outside of programming, I enjoy metal model building (the <a target='_blank' className='font-semibold link-purple-2' href='https://www.metalearth.com/premium'>Metal Earth</a> series is great!), astronomy, and reading. Currently, my favorite book is <a target='_blank' href='https://en.wikipedia.org/wiki/Babel,_or_the_Necessity_of_Violence' className='font-semibold link-purple-2 italic'>Babel, or the Necessity of Violence</a> by R.F. Kuang - I cannot recommend this book enough if you are into fantasy with elements of social commentary. When I have the time, I like to go exploring and/or hiking. Otherwise, I spend my time admiring how strange my dogs are.
                         </div><br/>
                         <div className="w-5/6 text-right">- Leo Wang</div>
                     </>) : (<>
-                        <button onClick={() => notifySkillHighlight(null)} className="font-semibold mb-4 text-xl tracking-wider hover:-translate-x-2 transition-transform duration-250"><i className="ri-arrow-left-s-line mr-2 ml-2"></i>Back</button>
+                        <button onClick={() => notifySkillHighlight(null)} className="font-semibold mb-4 tracking-wider hover:-translate-x-2 transition-transform duration-250 text-header"><i className="ri-arrow-left-s-line mr-2 ml-2"></i>Back</button>
                         <br/>
                         {titleSubsection.description}
                     </>)}
                 </div>
 
                 <div className='w-full flex justify-center mt-12 2xl:hidden'>
-                    <button onClick={() => document.getElementById('information-scroll-anchor')!.scrollIntoView({behavior: 'smooth'})} className="font-semibold mb-4 text-xl tracking-wider"><i className="ri-arrow-up-s-line mr-2 ml-2"></i>Return to Top</button>
+                    <button onClick={() => document.getElementById('information-scroll-anchor')!.scrollIntoView({behavior: 'smooth'})} className="font-semibold mb-4 text-header tracking-wider"><i className="ri-arrow-up-s-line mr-2 ml-2"></i>Return to Top</button>
                 </div>
             </div>
         </div>
