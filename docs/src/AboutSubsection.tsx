@@ -83,7 +83,7 @@ export default function About({ links, titleSubsection, notifySkillHighlight }: 
 
     return (
         <div id="information-main" className="flex flex-col gap-4 w-full">
-            <p id="information-title" className="text-3xl sm:text-4xl 2xl:text-6xl text-white fira-code-font align-text-bottom mt-4 ml-2">C:&#92;ABOUT
+            <p id="information-title" className="text-3xl sm:text-4xl 2xl:text-6xl text-white fira-code-font align-text-bottom mt-4 ml-2 mr-2">C:&#92;ABOUT
                 <span className='text-lg sm:text-2xl 2xl:text-4xl'>
                     <span id="about-section" className='opacity-0 -translate-x-64 inline-block'>&nbsp;&#92;&nbsp;{(titleSubsection === null ? cachedSections[0] : prevSection).toUpperCase()}</span>
                     <span id="about-subsection" className='opacity-0 -translate-x-64 inline-block'>&nbsp;&#92;&nbsp;{(titleSubsection === null ? cachedSections[1] : prevSubsection).toUpperCase()}</span>
@@ -92,11 +92,11 @@ export default function About({ links, titleSubsection, notifySkillHighlight }: 
             <div className="bg-black-main/30 w-full h-full rounded-sm text-white relative backdrop-blur-[2px] col-span-4">
                 <div className="pl-4 pr-4 pt-4 pb-2 text-content tracking-wide leading-normal">
                     {(titleSubsection === null) ? (<>
-                        <br/><div className="w-full flex justify-evenly">
-                            <Brief title="experience" desc="4+ Years"></Brief> {/* 6+ if based on when i started to code. 4+ if starting from NASA */}
-                            <Brief title="primary language" desc="C#"></Brief>
-                            <Brief title="role" desc="Backend Engineer"></Brief>
-                        </div><br/>
+                        <br/><Brief data={[
+                            {title: 'experience', desc: '4+ Years'},
+                            {title: 'main language', desc: 'C#'},
+                            {title: 'role', desc: 'Backend Engineer'},
+                        ]}></Brief>
                         <p className='font-semibold'>Hello! Thanks for stopping by!</p><br/>
                         <div className='indent-6'>
                             My name is Leo Wang, an undergraduate studying computer science at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a> as part of the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College. I have the most experience in high-performance scientific simulations and large-scale (billions (!)) data processing/visualization, especially as a result of my <a target='_blank' href='https://github.com/Andallfor/MVT' className='font-semibold link-red-2'>3 year long internship with NASA</a>. The moon background image on this page was created using the code I wrote for the internship.

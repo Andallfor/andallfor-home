@@ -119,6 +119,9 @@
     .text-content {
         @apply 2xl:text-lg sm:text-base text-sm
     }
+    .text-sidebar-header {
+        @apply 2xl:text-4xl sm:text-2xl text-base
+    }
     .text-sidebar {
         @apply 2xl:text-xl sm:text-base text-sm
     }

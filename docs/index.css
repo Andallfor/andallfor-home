@@ -685,6 +685,25 @@ video {
   }
 }
 
+.text-sidebar-header {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .text-sidebar-header {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@media (min-width: 1536px) {
+  .text-sidebar-header {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+  }
+}
+
 .text-sidebar {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1587,11 +1606,6 @@ video {
   .xs\:p-4 {
     padding: 1rem;
   }
-
-  .xs\:text-xl {
-    font-size: 1.25rem;
-    line-height: 1.75rem;
-  }
 }
 
 @media (min-width: 640px) {
@@ -1607,12 +1621,12 @@ video {
     margin-top: -4rem;
   }
 
-  .sm\:mr-2 {
-    margin-right: 0.5rem;
-  }
-
   .sm\:ml-2 {
     margin-left: 0.5rem;
+  }
+
+  .sm\:mr-2 {
+    margin-right: 0.5rem;
   }
 
   .sm\:block {
@@ -1621,14 +1635,6 @@ video {
 
   .sm\:gap-16 {
     gap: 4rem;
-  }
-
-  .sm\:pr-4 {
-    padding-right: 1rem;
-  }
-
-  .sm\:pl-4 {
-    padding-left: 1rem;
   }
 
   .sm\:text-2xl {

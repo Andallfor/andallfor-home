@@ -54,7 +54,7 @@ export default function Skills({ groups, skillsShown, collapsed, toggleSkillsSho
                 {groups.map(({ header, skills }) => (
                     <div key={key++} className="relative">
                         <button style={{transform: getWidth(), transitionDelay: transitionIndex++ * 25 + 'ms'}} className='transition-transform ease-in-out duration-[350ms] w-full' disabled={collapsed['ignore']} onClick={() => notifyCollapse(header)}>
-                            <p className="text-base md:text-xl 2xl:text-4xl text-white fira-code-bold text-right">
+                            <p className="text-sidebar-header text-white fira-code-bold text-right">
                                 {header.toUpperCase()}
                             </p>
                         </button>
@@ -66,7 +66,7 @@ export default function Skills({ groups, skillsShown, collapsed, toggleSkillsSho
                                         title: name,
                                         description: desc
                                     })} className='w-full group flex justify-end pt-2'>
-                                    <p className="text-sidebar text-off-white text-right leading-tight pointer-events-none transition-transform text-sm xs:text-xl">
+                                    <p className="text-sidebar text-off-white text-right leading-tight pointer-events-none transition-transform">
                                         <i className="ri-arrow-down-s-line inline-block"></i>
                                         {name}
                                     </p>
@@ -78,7 +78,7 @@ export default function Skills({ groups, skillsShown, collapsed, toggleSkillsSho
                     </div>
                 ))}
             </div>
-            <div className='h-full shrink-0 flex flex-col justify-between items-center z-50' style={{minHeight: 'inherit'}}>
+            <div className='h-full shrink-0 flex flex-col justify-between items-center z-50 mr-2' style={{minHeight: 'inherit'}}>
                 <div className="h-full bg-off-white w-0.5 flex-grow"></div>
                 <button onClick={toggleSkillsShown} className={'z-50 transition-transform duration-200 ' + arrowDir}>
                     {/* tailwind breakpoints dont play nice with remix icon sizing */}

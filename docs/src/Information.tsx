@@ -80,12 +80,12 @@ export default function Information() {
 
     function checkCollapse() {
         let copy = {...collapsed};
-        if (window.innerWidth >= 768 && (!copy['ignore'] || !copy['didAlreadyUpdate'])) {
+        if (window.innerWidth >= 1024 && (!copy['ignore'] || !copy['didAlreadyUpdate'])) {
             Object.keys(copy).forEach((k) => copy[k] = false);
             copy['ignore'] = true;
             copy['didAlreadyUpdate'] = true;
             setCollapse(copy);
-        } else if (window.innerWidth < 768 && (copy['ignore'] || !copy['didAlreadyUpdate'])) {
+        } else if (window.innerWidth < 1024 && (copy['ignore'] || !copy['didAlreadyUpdate'])) {
             Object.keys(copy).forEach((k) => copy[k] = true);
             copy['ignore'] = false;
             copy['didAlreadyUpdate'] = true;
@@ -129,7 +129,7 @@ export default function Information() {
                 {window.innerWidth < 1024 ? (<>
                     <div className='flex justify-between w-full'>
                         <div className='flex'>
-                            <div className='flex-grow-0 relative'>
+                            <div className='md:flex-grow-1 flex-grow-0 relative'>
                                 <img src="self.jpg" className='h-full absolute max-w-fit'/>
                             </div>
                         </div>
