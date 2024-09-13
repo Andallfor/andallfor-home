@@ -32,7 +32,7 @@ function NavigationButton({name, highlightColor, img, translateOverride, action}
         <div id={'nav-' + name} className="w-1/3 relative flex items-center flex-col">
             {link}
             <div className={translateOverride.split(' ')[0] + " w-full origin-top relative peer-hover:-translate-y-16 transition-transform z-40 ease-in-out duration-[400ms] flex justify-center"}>
-                <img className={translateOverride.split(' ')[1] + " absolute -z-20 origin-top md:max-w-[50vw] w-screen 2xl:w-full object-cover fade-bottom"} src={img}/>
+                <img className={translateOverride.split(' ')[1] + " absolute -z-20 origin-top md:max-w-[50vw] w-screen 2xl:w-full object-cover fade-bottom opacity-80"} src={img}/>
                 <div className={translateOverride.split(' ')[1] + " w-full -z-50 absolute backdrop-blur-sm fade-bottom"}></div>
             </div>
             <div id={'nav-' + name + '-highlight'} className='relative peer-hover:translate-y-8 translate-y-4 duration-[350ms] transition-transform pointer-events-none opacity-0 peer-hover:opacity-100 bottom-16 w-full z-50'>
@@ -54,7 +54,7 @@ export default function Navigation() {
                     const anchor = document.getElementById('landing-main');
                     if (anchor !== undefined) {
                         anchor?.scrollIntoView({behavior: 'smooth'});
-                    } else console.error("TODO! implement redirecting to index.html#landing-main");
+                    }
                 }}><i className="ri-home-2-fill ri-lg md:ri-xl"></i></button>
                 <div className="md:block hidden w-[24px]"></div>
                 <div className="md:block hidden w-[24px]"></div>

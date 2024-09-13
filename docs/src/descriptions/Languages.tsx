@@ -31,3 +31,61 @@ export function Lng_CSharp() {
         </div>
     );
 }
+
+export function Lng_Python() {
+    return (
+        <div>
+            <Brief data={[
+                {title: 'experience', desc: '6+ Years'},
+                {title: 'skill', desc: 'Advanced'},
+                {title: 'platforms', desc: 'Anaconda, Pip'}
+            ]}></Brief>
+            <div className="indent-6">
+                <a href="https://www.python.org/" target="_blank" className="link-blue-2 font-semibold">Python</a> is the first language I learned, and similarly also the language I have been actively using the longest. Although I primarily use it for personal projects/R&D, I have strong experience in many common libraries. The main libraries I use are <a className="link-blue-2 font-semibold" target="_blank" href="https://opencv.org/">OpenCV</a> and <a className="link-blue-2 font-semibold" target="_blank" href="https://numpy.org/">Numpy</a>.
+            </div><br/>
+            <p>Among the libraries I know, the most notable are:</p>
+            <div className='list-hanging'>- Scientific: <a className="link-blue-2 font-semibold" target="_blank" href="https://www.tensorflow.org/">Tensorflow</a>, <a className="link-blue-2 font-semibold" target="_blank" href="https://scikit-learn.org/stable/">SciKit-Learn</a>, <a className="link-blue-2 font-semibold" target="_blank" href="https://scikit-image.org/">SciKit-Image</a>, <a className="link-blue-2 font-semibold" target="_blank" href="https://glymur.readthedocs.io/en/latest/introduction.html">Glymur</a>, <a className="link-blue-2 font-semibold" target="_blank" href="https://pypi.org/project/pytesseract/">PyTesseract</a></div>
+            <div className='list-hanging'>- Computational: <a className="link-blue-2 font-semibold" target="_blank" href="https://opencv.org/">OpenCV</a>, <a className="link-blue-2 font-semibold" target="_blank" href="https://numpy.org/">Numpy</a>, <a className="link-blue-2 font-semibold" target="_blank" href="https://pandas.pydata.org/">Pandas</a>, <a className="link-blue-2 font-semibold" target="_blank" href="https://matplotlib.org/">Matplotlib</a></div>
+            <div className='list-hanging'>- Web/Other: <a className="link-blue-2 font-semibold" target="_blank" href="https://www.selenium.dev/">Selenium</a>, <a className="link-blue-2 font-semibold" target="_blank" href="https://www.crummy.com/software/BeautifulSoup/">BeautifulSoup</a>, <a className="link-blue-2 font-semibold" target="_blank" href="https://docs.python.org/3/library/tkinter.html">Tkinter</a></div><br/>
+            <p>Some of the noteworthy projects I have completed include:</p>
+            <div className='list-hanging'>1. A <a href="https://github.com/Andallfor/RPS" target="_blank" className="link-red-2 font-semibold">relative positioning system</a> (RPS) that could detect and determine the distance to a set of known objects from a video frame,</div>
+            <div className='list-hanging'>2. A <a href="https://github.com/Andallfor/infoBot" target="_blank" className="link-red-2 font-semibold">Discord bot</a> that scrapped and stored 300k+ messages and then was able to display various pieces of information (server message patterns, user common phrases, etc) in realtime.</div><br/>
+            <div className='font-semibold'>Related Projects:
+                <p className='indent-6'>
+                    <a href='https://github.com/Andallfor/RPS' target='_blank' className='link-red-2'>RPS</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href='https://github.com/Andallfor/infoBot' target='_blank' className='link-red-2'>Discord Bot</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href='https://github.com/Andallfor/bombparty-bot' target='_blank' className='link-red-2'>Bombparty Game Bot</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href='https://github.com/Andallfor/pythonista-text-engine' target='_blank' className='link-red-2'>Text Engine</a>
+                </p>
+            </div>
+        </div>);
+}
+
+export function Lng_CPlusPlus() {
+    return (
+        <div>
+            <Brief data={[
+                {title: 'experience', desc: '1+ Years'},
+                {title: 'skill', desc: 'Intermediate'},
+                {title: 'platforms', desc: 'Visual Studio, GCC'},
+            ]}></Brief>
+            <div className="indent-6">
+                I starting learning <a className="link-blue-2 font-semibold" target="_blank" href="https://cplusplus.com/">C++</a> from the John Hopkins <a className="link-blue-2 font-semibold" target="_blank" href="https://e-catalogue.jhu.edu/course-descriptions/computer_science_601/">Intermediate Programming</a> class (teaching data structures and C/C++), in which I received in A+. Between the class and working on my own personal projects, I have gained experience using features such as memory management, structs, templates, and function pointers. Currently, I am enrolled in UMD's <a className="link-blue-2 font-semibold" target="_blank" href="https://academiccatalog.umd.edu/undergraduate/approved-courses/cmsc/">CMSC 216</a>, teaching introductory computer systems, C, and assembly programming.
+            </div><br/>
+            <div className="indent-6">
+                Outside of college, the largest project I have done is my <a href='https://github.com/Andallfor/Barnes-Hut-Simulation' target='_blank' className='link-red-2'>Barnes-Hut simulation</a>, which implements the Barnes-Hut algorithm to efficiently simulate the N-body problem. The algorithm uses a quadtree to simplify gravitational force calculations, with some extra optimizations added by me. These include <a href='https://en.wikipedia.org/wiki/Leapfrog_integration' target='_blank' className='link-blue-2'>leapfrog integration</a>, <a href='https://en.wikipedia.org/wiki/Tail_call' target='_blank' className='link-blue-2'>tail recursion</a>, and planetary body caching. Currently, it is able to simulate some 15,000 bodies with an average frame time of 230ms.
+            </div><br/>
+            <div className='font-semibold'>Related Projects:
+                <p className='indent-6'>
+                    <a href='https://github.com/Andallfor/Barnes-Hut-Simulation' target='_blank' className='link-red-2'>Barnes-Hut Simulation</a>
+                </p>
+            </div>
+        </div>);
+}
+
+export function Lng_JSTS() {
+    return (<div></div>);
+}

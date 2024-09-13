@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { Exp_NASA, Exp_FTC } from './descriptions/Experiences';
 import { Skl_DataProcessing, Skl_Optimization, Skl_WebDev } from './descriptions/Skills';
 import { Plf_TailwindReact } from './descriptions/Platforms';
-import { Lng_CSharp } from './descriptions/Languages';
+import { Lng_CPlusPlus, Lng_CSharp, Lng_JSTS, Lng_Python } from './descriptions/Languages';
 import Skills, { SkillProp } from './SkillSubsection';
 import About from './AboutSubsection';
 
@@ -34,7 +34,7 @@ export default function Information() {
         ]},
         {header: 'skills', skills: [
             {name: 'Software Optimization', desc: <Skl_Optimization></Skl_Optimization>},
-            {name: 'Large-Scale Data Processing', desc: <Skl_DataProcessing></Skl_DataProcessing>},
+            {name: 'Large-Scale Data Processing', desc: ``},
             {name: 'Web Development', desc: <Skl_WebDev></Skl_WebDev>},
         ]},
         {header: 'platforms', skills: [
@@ -44,9 +44,9 @@ export default function Information() {
         ]},
         {header: 'languages', skills: [
             {name: 'C#', desc: <Lng_CSharp></Lng_CSharp>},
-            {name: 'C++', desc: ``},
-            {name: 'TypeScript & JavaScript', desc: ``},
-            {name: 'Python', desc: ``}
+            {name: 'C++', desc: <Lng_CPlusPlus></Lng_CPlusPlus>},
+            {name: 'TypeScript & JavaScript', desc: <Lng_JSTS></Lng_JSTS>},
+            {name: 'Python', desc: <Lng_Python></Lng_Python>}
         ]}
     ];
 
