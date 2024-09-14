@@ -45,6 +45,18 @@ function NavigationButton({name, highlightColor, img, translateOverride, action}
 }
 
 export default function Navigation() {
+    function handleNavClick(id: string) {
+        const info = document.getElementById(id);;
+        if (info !== undefined) {
+            info?.scrollIntoView({behavior: 'smooth'});
+            const link = document.getElementById('nav-about-link');
+            // "unhover" the element to hide the dropdown
+            link?.classList.remove('peer');
+            link?.addEventListener('mouseenter', () => link?.classList.add('peer'), {once: true});
+            link?.addEventListener('touchend', () => link?.classList.add('peer'), {once: true});
+        }
+    }
+
     return (
         <div id="navigation-main" className="w-full flex mt-8 sticky top-4 z-[100] select-none">
             <div className="absolute w-full top-4 sm:top-0 h-[calc(100%+1rem+2rem)] -translate-y-8 backdrop-blur-md -z-50"></div>
@@ -62,18 +74,8 @@ export default function Navigation() {
 
             <div className="flex-grow h-0 min-h-full">
                 <div className="flex justify-evenly text-white fira-code-font text-lg md:text-xl mr-4 ml-4">
-                    <NavigationButton name='projects' highlightColor="bg-red-main" img='moonMeshFull.png' action="https://example.com/"/>
-                    <NavigationButton name='about' highlightColor="bg-purple-main" img='robotCrop.jpg' translateOverride="-translate-y-[90vh] h-[85vh]" action={() => {
-                        const info = document.getElementById('information-scroll-anchor');
-                        if (info !== undefined) {
-                            info?.scrollIntoView({behavior: 'smooth'});
-                            const link = document.getElementById('nav-about-link');
-                            // "unhover" the element to hide the dropdown
-                            link?.classList.remove('peer');
-                            link?.addEventListener('mouseenter', () => link?.classList.add('peer'), {once: true});
-                            link?.addEventListener('touchend', () => link?.classList.add('peer'), {once: true});
-                        } else console.error("TODO! need to implement redirecting to index.html#information-main");
-                    }}/>
+                    <NavigationButton name='projects' highlightColor="bg-red-main" img='moonMeshFull.png' action={() => handleNavClick('projects-scroll-anchor')}/>
+                    <NavigationButton name='about' highlightColor="bg-purple-main" img='robotCrop.jpg' translateOverride="-translate-y-[90vh] h-[85vh]" action={() => handleNavClick('information-scroll-anchor')}/>
                     <NavigationButton name='contact' highlightColor="bg-blue-main" img='barnesHutCrop.png' action="https://example.com/"/>
                 </div>
             </div>

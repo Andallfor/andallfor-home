@@ -14,7 +14,6 @@ root.render(
         <div className='h-16'></div>
         <div id="information-scroll-anchor" className='h-16'></div>
         <Information></Information>
-        <div className='h-64'></div>
         <Projects></Projects>
         <Footer></Footer>
     </>
