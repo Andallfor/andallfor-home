@@ -20,7 +20,7 @@ interface ContactLink {
 interface ContactLinkTitleConfig { icon: string, title: string, newSection: boolean }
 interface ContactLinkBodyConfig { url: string, urlCover: string, newSection: boolean }
 
-function ContactLinkTitle({icon, title, newSection }: ContactLinkTitleConfig) {
+function ContactLinkTitle({icon, title, newSection}: ContactLinkTitleConfig) {
     if (newSection) return (<div className="mt-2"><i className={icon + " ri-lg mr-2"}></i><span>{title}</span></div>);
     else return (<div><i className={icon + " ri-lg mr-2"}></i><span>{title}</span></div>);
 }
@@ -101,7 +101,7 @@ export default function About({ links, titleSubsection, notifySkillHighlight }: 
                         <div className='indent-6'>
                             My name is Leo Wang, an undergraduate studying computer science at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a> as part of the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College. I have the most experience in high-performance scientific simulations and large-scale (billions (!)) data processing/visualization, especially as a result of my <a target='_blank' href='https://github.com/Andallfor/MVT' className='font-semibold link-red-2'>3 year long internship with NASA</a>. The moon background image on this page was created using the code I wrote for the internship.
                         </div><br/>
-                        <div className='indent-6'>To the right {window.innerWidth < 768 ? 'of my portrait' : ''} is an abridged list of technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are not sorted in any particular order. <span className='link-blue-2'>Blue links</span> will link to outside sources, such as technologies or context. <span className='link-red-2'>Red links</span> will refer to something I have created, such as a project.</div><br/>
+                        <div className='indent-6'><span className="link-purple-2">To the right{window.innerWidth < 768 ? ' of my portrait' : ''}</span> is an abridged list of technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are not sorted in any particular order. <span className='link-blue-2'>Blue links</span> will link to outside sources, such as technologies or context. <span className='link-red-2'>Red links</span> will refer to something I have created, such as a project.</div><br/>
                         <div className='indent-6'>
                             Outside of programming, I enjoy metal model building (the <a target='_blank' className='font-semibold link-purple-2' href='https://www.metalearth.com/premium'>Metal Earth</a> series is great!), astronomy, and reading. Currently, my favorite book is <a target='_blank' href='https://en.wikipedia.org/wiki/Babel,_or_the_Necessity_of_Violence' className='font-semibold link-purple-2 italic'>Babel, or the Necessity of Violence</a> by R.F. Kuang - I cannot recommend this book enough if you are into fantasy with elements of social commentary. When I have the time, I like to go exploring and/or hiking. Otherwise, I spend my time admiring how strange my dogs are.
                         </div><br/>

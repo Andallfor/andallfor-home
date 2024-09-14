@@ -124,33 +124,35 @@ export default function Information() {
     }, [doesNeedUpdate]);
 
     return (
-         <div className="w-full flex justify-center mt-16">
-            <div className="w-full md:mr-8 md:ml-8 sm:mr-2 sm:ml-2">
-                {window.innerWidth < 1024 ? (<>
-                    <div className='flex justify-between w-full'>
-                        <div className='flex'>
-                            <div className='md:flex-grow-1 flex-grow-0 relative'>
-                                <img src="self.jpg" className='h-full absolute max-w-fit'/>
+        <div className='md:mr-8 md:ml-8 sm:mr-2 sm:ml-2 mt-16'>
+            <div className="w-full flex justify-center">
+                <div className="w-full">
+                    {window.innerWidth < 1024 ? (<>
+                        <div className='flex justify-between w-full'>
+                            <div className='flex'>
+                                <div className='md:flex-grow-1 flex-grow-0 relative'>
+                                    <img src="self.jpg" className='h-full absolute max-w-fit'/>
+                                </div>
+                            </div>
+                            <div className='h-full'>
+                                <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => notifySkillsShownChange(!skillsShown)} notifySkillHighlight={updateSkillHighlight} notifyCollapse={updateCollapse} collapsed={collapsed}/>
                             </div>
                         </div>
-                        <div className='h-full'>
-                            <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => notifySkillsShownChange(!skillsShown)} notifySkillHighlight={updateSkillHighlight} notifyCollapse={updateCollapse} collapsed={collapsed}/>
+                        <About links={[]} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}/>
+                    </>) : <>
+                        <div className='w-full flex justify-between gap-4'>
+                            <div className='flex-grow-[0.5] min-w-[270px]'>
+                                <img src="self.jpg" className=''/>
+                            </div>
+                            <div className='flex-grow-[3] w-[70%] min-w-[60%] xl:min-w-[70%]'>
+                                <About links={[]} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}/>
+                            </div>
+                            <div className=''>
+                                <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => notifySkillsShownChange(!skillsShown)} notifySkillHighlight={updateSkillHighlight} notifyCollapse={updateCollapse} collapsed={collapsed}/>
+                            </div>
                         </div>
-                    </div>
-                    <About links={[]} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}/>
-                </>) : <>
-                    <div className='w-full flex justify-between gap-4'>
-                        <div className='flex-grow-[0.5] min-w-[270px]'>
-                            <img src="self.jpg" className=''/>
-                        </div>
-                        <div className='flex-grow-[3] w-[70%] min-w-[60%] xl:min-w-[70%]'>
-                            <About links={[]} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}/>
-                        </div>
-                        <div className=''>
-                            <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => notifySkillsShownChange(!skillsShown)} notifySkillHighlight={updateSkillHighlight} notifyCollapse={updateCollapse} collapsed={collapsed}/>
-                        </div>
-                    </div>
-                </>}
+                    </>}
+                </div>
             </div>
          </div>
     );

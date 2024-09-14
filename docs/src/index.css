@@ -117,7 +117,7 @@
         @apply underline underline-offset-[3px] decoration-2 decoration-purple-light hover:decoration-purple-bright
     }
     .text-content {
-        @apply 2xl:text-lg sm:text-base text-sm
+        @apply 2xl:text-base sm:text-sm text-xs
     }
     .text-sidebar-header {
         @apply 2xl:text-4xl sm:text-2xl text-base
@@ -130,5 +130,8 @@
     }
     .text-header {
         @apply 2xl:text-xl sm:text-lg text-base
+    }
+    .text-content-sm {
+        @apply 2xl:text-sm sm:text-xs text-2xs
     }
 }

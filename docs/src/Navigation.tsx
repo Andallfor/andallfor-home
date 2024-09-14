@@ -40,14 +40,13 @@ function NavigationButton({name, highlightColor, img, translateOverride, action}
                 <div className={highlightColor + " absolute md:max-w-[50vw] w-screen 2xl:w-full h-4"}></div>
                 </div>
             </div>
-            
         </div>
     );
 }
 
 export default function Navigation() {
     return (
-        <div id="navigation-main" className="w-full flex mt-8 sticky top-4 z-50 select-none">
+        <div id="navigation-main" className="w-full flex mt-8 sticky top-4 z-[100] select-none">
             <div className="absolute w-full top-4 sm:top-0 h-[calc(100%+1rem+2rem)] -translate-y-8 backdrop-blur-md -z-50"></div>
             <div className="ml-6 md:ml-8 hidden xs:flex gap-3 text-white translate-y-[0.075em]">
                 <button onClick={() => {

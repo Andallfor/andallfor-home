@@ -4,6 +4,7 @@ import Navigation from './Navigation.tsx';
 import LandingPage from './LandingPage.tsx';
 import Information from './Information.tsx';
 import Footer from './Footer.tsx';
+import Projects from './Projects.tsx';
 
 const root = createRoot(document.getElementById('root')!);
 root.render(
@@ -13,6 +14,8 @@ root.render(
         <div className='h-16'></div>
         <div id="information-scroll-anchor" className='h-16'></div>
         <Information></Information>
+        <div className='h-64'></div>
+        <Projects></Projects>
         <Footer></Footer>
     </>
 );
