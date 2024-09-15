@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Exp_NASA, Exp_FTC } from './descriptions/Experiences';
 import { Skl_DataProcessing, Skl_Optimization, Skl_WebDev } from './descriptions/Skills';
-import { Plf_TailwindReact } from './descriptions/Platforms';
+import { Plf_AWS, Plf_TailwindReact, Plf_Unity } from './descriptions/Platforms';
 import { Lng_CPlusPlus, Lng_CSharp, Lng_JSTS, Lng_Python } from './descriptions/Languages';
 import Skills, { SkillProp } from './SkillSubsection';
 import About from './AboutSubsection';
@@ -29,24 +29,24 @@ export default function Information() {
 
     const sk = [
         {header: 'experiences', skills: [
-            {name: 'NASA', desc: <Exp_NASA></Exp_NASA>},
-            {name: 'FIRST Tech Challenge', desc: <Exp_FTC></Exp_FTC>},
+            {name: 'NASA', desc: <Exp_NASA/>},
+            {name: 'FIRST Tech Challenge', desc: <Exp_FTC/>},
         ]},
         {header: 'skills', skills: [
-            {name: 'Software Optimization', desc: <Skl_Optimization></Skl_Optimization>},
             {name: 'Large-Scale Data Processing', desc: ``},
-            {name: 'Web Development', desc: <Skl_WebDev></Skl_WebDev>},
+            {name: 'Software Optimization', desc: <Skl_Optimization/>},
+            {name: 'Web Development', desc: <Skl_WebDev/>},
         ]},
         {header: 'platforms', skills: [
-            {name: 'TailwindCSS & React', desc: <Plf_TailwindReact></Plf_TailwindReact>},
-            {name: 'Unity', desc: ``},
-            {name: 'AWS', desc: ``}
+            {name: 'Unity', desc: <Plf_Unity/>},
+            {name: 'TailwindCSS & React', desc: <Plf_TailwindReact/>},
+            {name: 'AWS', desc: <Plf_AWS/>},
         ]},
         {header: 'languages', skills: [
-            {name: 'C#', desc: <Lng_CSharp></Lng_CSharp>},
-            {name: 'C++', desc: <Lng_CPlusPlus></Lng_CPlusPlus>},
-            {name: 'TypeScript & JavaScript', desc: <Lng_JSTS></Lng_JSTS>},
-            {name: 'Python', desc: <Lng_Python></Lng_Python>}
+            {name: 'C#', desc: <Lng_CSharp/>},
+            {name: 'Python', desc: <Lng_Python/>},
+            {name: 'TypeScript & JavaScript', desc: <Lng_JSTS/>},
+            {name: 'C++', desc: <Lng_CPlusPlus/>},
         ]}
     ];
 

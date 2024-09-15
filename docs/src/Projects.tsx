@@ -7,7 +7,7 @@ interface ProjectProps {
     img: string,
     links: ProjectLink[],
     right: boolean,
-    imgDesc: string
+    caption: string
 };
 
 interface ProjectLink {
@@ -15,14 +15,14 @@ interface ProjectLink {
     link: string,
 };
 
-function Project({ skills, title, date, location, body, img, links, right, imgDesc }: ProjectProps) {
+function Project({ skills, title, date, location, body, img, links, right, caption }: ProjectProps) {
     let key = 0;
     return (
         <div className={"w-[min(80rem,90%)] flex justify-center md:gap-12 flex-col items-start " + (right ? 'md:flex-row-reverse' : 'md:flex-row')}>
             <div className="w-[min(30rem,100%)] relative">
                 <img src={img} className="ring-2 ring-red-main relative"/>
-                <div className={"text-footnote text-off-white w-full fira-code-font mt-2 mb-4 text-center " + (right ? 'md:text-right' : 'md:text-left')}>  
-                    {imgDesc}
+                <div className={"text-footnote text-off-white w-full fira-code-font mt-2 mb-4 text-center whitespace-pre-line " + (right ? 'md:text-right' : 'md:text-left')}>  
+                    {caption}
                 </div>
             </div>
             <div className="w-[min(35rem,100%)] h-full text-white">
@@ -56,7 +56,7 @@ export default function Projects() {
                     {text: "Paper", link: "https://ieeexplore.ieee.org/document/10521148"},
                 ]}
                 body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consectetur enim nec elit porta, vitae ornare ipsum tempor. Aliquam tortor purus, suscipit eget facilisis scelerisque, porta nec erat. Maecenas pulvinar magna mauris, quis dapibus nisl consequat vel."
-                imgDesc="Close Up of Canberra Deep Space Communications Complex&#13;&#10;30 Meter Resolution, ~10 Million Points In View"/>
+                caption="Close Up of Canberra Deep Space Communications Complex&#13;&#10;30 Meter Resolution, ~10 Million Points In View"/>
             <div className="h-24"></div>
             <Project right={true} title="Mission Visualization Toolkit" date="2021-23" location="NASA Goddard Space Flight Center"
                 skills="C#, HLSL, Python, Unity" img="jp2.png" links={[
@@ -64,7 +64,7 @@ export default function Projects() {
                     {text: "Paper", link: "https://ieeexplore.ieee.org/document/10521148"},
                 ]}
                 body="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi consectetur enim nec elit porta, vitae ornare ipsum tempor. Aliquam tortor purus, suscipit eget facilisis scelerisque, porta nec erat. Maecenas pulvinar magna mauris, quis dapibus nisl consequat vel."
-                imgDesc="Close Up of Canberra Deep Space Communications Complex&#13;&#10;30 Meter Resolution, ~10 Million Points In View"/>
+                caption="Close Up of Canberra Deep Space Communications Complex&#13;&#10;30 Meter Resolution, ~10 Million Points In View"/>
         </div>
     );
 }

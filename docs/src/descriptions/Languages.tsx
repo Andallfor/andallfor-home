@@ -61,7 +61,8 @@ export function Lng_Python() {
                     <a href='https://github.com/Andallfor/pythonista-text-engine' target='_blank' className='link-red-2'>Text Engine</a>
                 </p>
             </div>
-        </div>);
+        </div>
+    );
 }
 
 export function Lng_CPlusPlus() {
@@ -83,9 +84,30 @@ export function Lng_CPlusPlus() {
                     <a href='https://github.com/Andallfor/Barnes-Hut-Simulation' target='_blank' className='link-red-2'>Barnes-Hut Simulation</a>
                 </p>
             </div>
-        </div>);
+        </div>
+    );
 }
 
 export function Lng_JSTS() {
-    return (<div></div>);
+    return (
+        <div>
+            <Brief data={[
+                {title: 'experience', desc: '2+ Years'},
+                {title: 'skill', desc: 'Intermediate'},
+                {title: 'platforms', desc: 'TailwindCSS, React'},
+            ]}></Brief>
+            <div className="indent-6">
+                I routinely use a mixture of <a href="https://www.typescriptlang.org/" target="_blank" className="link-blue-2 font-semibold">TypeScript</a> and <a href="https://www.javascript.com/" target="_blank" className="link-blue-2 font-semibold">JavaScript</a> (though I prefer TypeScript) primarily for website-based projects. For larger projects, I typically use TypeScript/<a href="https://www.typescriptlang.org/docs/handbook/jsx.html" target="_blank" className="link-blue-2 font-semibold">TSX</a> and some type of framework - currently, I am using <a href="https://react.dev/" target="_blank" className="link-blue-2 font-semibold">React</a> (including for this website). Otherwise, I find just embedding JS into the site to be an easier way to accomplish similar functionality - an example of this can be found in my <a href='https://teammetalpipe.org/' target='_blank' className='link-red-2'>robotics team website</a>. Within TypeScript, the more advanced features that I commonly use include mapped types, indexed types and lambdas/functional programming.
+            </div><br/>
+            <div className='font-semibold'>Related Projects:
+                <p className='indent-6'>
+                    <a href='https://github.com/Andallfor/andallfor-home' target='_blank' className='link-red-2'>This Website's Source Code</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href='https://teammetalpipe.org/' target='_blank' className='link-red-2'>Robotics Team Website</a>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href='https://andallfor.github.io/wordsweeper/' target='_blank' className='link-red-2'>Crossword + Minesweeper Puzzle</a>
+                </p>
+            </div>
+        </div>
+    );
 }

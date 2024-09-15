@@ -89,11 +89,11 @@ export default function About({ links, titleSubsection, notifySkillHighlight }: 
                     <span id="about-subsection" className='opacity-0 -translate-x-64 inline-block'>&nbsp;&#92;&nbsp;{(titleSubsection === null ? cachedSections[1] : prevSubsection).toUpperCase()}</span>
                 </span>
             </p>
-            <div className="bg-black-main/30 w-full h-full rounded-sm text-white relative backdrop-blur-[2px] col-span-4">
+            <div className="bg-black-main/30 w-full max-w-[1024px] h-full rounded-sm text-white relative backdrop-blur-[2px] col-span-4">
                 <div className="pl-4 pr-4 pt-4 pb-2 text-content tracking-wide leading-normal">
                     {(titleSubsection === null) ? (<>
                         <br/><Brief data={[
-                            {title: 'experience', desc: '4+ Years'},
+                            {title: 'experience', desc: '6+ Years'},
                             {title: 'main language', desc: 'C#'},
                             {title: 'role', desc: 'Backend Engineer'},
                         ]}></Brief>
@@ -101,7 +101,7 @@ export default function About({ links, titleSubsection, notifySkillHighlight }: 
                         <div className='indent-6'>
                             My name is Leo Wang, an undergraduate studying computer science at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a> as part of the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College. I have the most experience in high-performance scientific simulations and large-scale (billions (!)) data processing/visualization, especially as a result of my <a target='_blank' href='https://github.com/Andallfor/MVT' className='font-semibold link-red-2'>3 year long internship with NASA</a>. The moon background image on this page was created using the code I wrote for the internship.
                         </div><br/>
-                        <div className='indent-6'><span className="link-purple-2">To the right{window.innerWidth < 768 ? ' of my portrait' : ''}</span> is an abridged list of technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are not sorted in any particular order. <span className='link-blue-2'>Blue links</span> will link to outside sources, such as technologies or context. <span className='link-red-2'>Red links</span> will refer to something I have created, such as a project.</div><br/>
+                        <div className='indent-6'><span className="link-purple-2">To the right{window.innerWidth < 768 ? ' of my portrait' : ''}</span> is an abridged list of just the technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are sorted strongest to weakest (though I consider myself proficient in all listed technologies). <span className='link-blue-2'>Blue links</span> will link to outside sources, such as technologies or context. <span className='link-red-2'>Red links</span> will refer to something I have created, such as a project.</div><br/>
                         <div className='indent-6'>
                             Outside of programming, I enjoy metal model building (the <a target='_blank' className='font-semibold link-purple-2' href='https://www.metalearth.com/premium'>Metal Earth</a> series is great!), astronomy, and reading. Currently, my favorite book is <a target='_blank' href='https://en.wikipedia.org/wiki/Babel,_or_the_Necessity_of_Violence' className='font-semibold link-purple-2 italic'>Babel, or the Necessity of Violence</a> by R.F. Kuang - I cannot recommend this book enough if you are into fantasy with elements of social commentary. When I have the time, I like to go exploring and/or hiking. Otherwise, I spend my time admiring how strange my dogs are.
                         </div><br/>
