@@ -31,11 +31,11 @@ function NavigationButton({name, highlightColor, img, translateOverride, action}
     return (
         <div id={'nav-' + name} className="w-1/3 relative flex items-center flex-col">
             {link}
-            <div className={translateOverride.split(' ')[0] + " w-full origin-top relative peer-hover:-translate-y-16 transition-transform z-40 ease-in-out duration-[400ms] flex justify-center"}>
+            <div className={translateOverride.split(' ')[0] + " w-full origin-top relative peer-hover:-translate-y-16 transition-transform z-40 ease-in-out duration-[400ms] justify-center hidden sm:flex"}>
                 <img className={translateOverride.split(' ')[1] + " absolute -z-20 origin-top md:max-w-[50vw] w-screen 2xl:w-full object-cover fade-bottom opacity-80"} src={img}/>
                 <div className={translateOverride.split(' ')[1] + " w-full -z-50 absolute backdrop-blur-sm fade-bottom"}></div>
             </div>
-            <div id={'nav-' + name + '-highlight'} className='relative peer-hover:translate-y-8 translate-y-4 duration-[350ms] transition-transform pointer-events-none opacity-0 peer-hover:opacity-100 bottom-16 w-full z-50'>
+            <div id={'nav-' + name + '-highlight'} className='relative peer-hover:translate-y-8 translate-y-4 duration-[350ms] transition-transform pointer-events-none opacity-0 peer-hover:opacity-100 bottom-16 w-full z-50 hidden sm:block'>
                 <div className='absolute flex w-full justify-center'>
                 <div className={highlightColor + " absolute md:max-w-[50vw] w-screen 2xl:w-full h-4"}></div>
                 </div>

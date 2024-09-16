@@ -18,6 +18,7 @@ export default function Information() {
         'didAlreadyUpdate': false
     });
     const [doesNeedUpdate, setDoesNeedUpdate] = useState(true);
+    const [lastWidth, updateWidth] = useState(window.innerWidth);
 
     const sk = [
         {header: 'experiences', skills: [
@@ -107,6 +108,7 @@ export default function Information() {
             checkCollapse();
     
             window.addEventListener('resize', () => {
+                if (window.innerWidth !+ lastWidth) updateWidth(window.innerWidth);
                 checkCollapse();
                 setDoesNeedUpdate(true);
             });

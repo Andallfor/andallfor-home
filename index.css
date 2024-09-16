@@ -1761,6 +1761,14 @@ video {
     display: block;
   }
 
+  .sm\:flex {
+    display: flex;
+  }
+
+  .sm\:w-full {
+    width: 100%;
+  }
+
   .sm\:gap-16 {
     gap: 4rem;
   }
@@ -1803,6 +1811,10 @@ video {
   .sm\:text-xs {
     font-size: 0.75rem;
     line-height: 1rem;
+  }
+
+  .sm\:opacity-80 {
+    opacity: 0.8;
   }
 }
 
@@ -1884,6 +1896,10 @@ video {
   .md\:text-xl {
     font-size: 1.25rem;
     line-height: 1.75rem;
+  }
+
+  .md\:opacity-80 {
+    opacity: 0.8;
   }
 }
 
