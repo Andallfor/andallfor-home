@@ -1,4 +1,4 @@
-type BriefTitles = 'skill' | 'experience' | 'platforms' | 'main language' | 'role' | 'duration' | 'libraries';
+type BriefTitles = 'skill' | 'experience' | 'platforms' | 'main language' | 'role' | 'duration' | 'libraries' | 'specialty';
 
 interface BriefProp {
     data: BriefData[];
@@ -18,12 +18,13 @@ export default function Brief({ data }: BriefProp) {
         'role': 'ri-user-3-fill',
         'duration': 'ri-calendar-2-fill',
         'libraries': 'ri-book-shelf-fill',
+        'specialty': 'ri-lightbulb-fill',
     };
 
     let key = 0;
 
     return (<>
-        <div className="w-full flex justify-evenly gap-2">
+        <div className="w-full flex justify-evenly gap-4">
             {data.map(({ title, desc }) => 
                 <div key={key++}>
                     <i className={iconMap[title] + " mr-2"}></i>

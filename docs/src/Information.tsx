@@ -33,8 +33,8 @@ export default function Information() {
             {name: 'FIRST Tech Challenge', desc: <Exp_FTC/>},
         ]},
         {header: 'skills', skills: [
-            {name: 'Large-Scale Data Processing', desc: ``},
             {name: 'Software Optimization', desc: <Skl_Optimization/>},
+            {name: 'Large-Scale Data Processing', desc: <Skl_DataProcessing/>},
             {name: 'Web Development', desc: <Skl_WebDev/>},
         ]},
         {header: 'platforms', skills: [

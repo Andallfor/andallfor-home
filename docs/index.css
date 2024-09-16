@@ -987,6 +987,14 @@ video {
   height: 100vh;
 }
 
+.h-0\.5 {
+  height: 0.125rem;
+}
+
+.h-32 {
+  height: 8rem;
+}
+
 .min-h-\[270px\] {
   min-height: 270px;
 }
@@ -1289,6 +1297,11 @@ video {
 .bg-red-main {
   --tw-bg-opacity: 1;
   background-color: rgb(180 32 42 / var(--tw-bg-opacity));
+}
+
+.bg-white {
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
 }
 
 .object-cover {
@@ -1796,6 +1809,10 @@ video {
 
   .md\:block {
     display: block;
+  }
+
+  .md\:h-32 {
+    height: 8rem;
   }
 
   .md\:max-w-\[50vw\] {
