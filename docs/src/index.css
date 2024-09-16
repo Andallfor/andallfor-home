@@ -55,6 +55,16 @@
     mask: var(--mask);
 }
 
+.fade-top {
+    --mask: linear-gradient(to top, 
+        rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 20%, 
+        rgba(0,0,0, 0) 100%, rgba(0,0,0, 0) 0
+    ) 100% 50% / 100% 100% repeat-x;
+
+    -webkit-mask: var(--mask); 
+    mask: var(--mask);
+}
+
 .fade-left {
     --mask: linear-gradient(to left, 
         rgba(0,0,0, 1) 0,   rgba(0,0,0, 1) 70%,

@@ -19,14 +19,6 @@ export default function Information() {
     });
     const [doesNeedUpdate, setDoesNeedUpdate] = useState(true);
 
-    const li = [
-        {id: 0, icon: 'ri-mail-star-fill',     title: 'Personal Email (Preferred)',    url: 'mailto:leozwang2005@gmail.com',                   urlCover: 'leozwang2005@gmail.com',             newSection: false},
-        {id: 1, icon: 'ri-mail-fill',          title: 'College Email',                 url: 'mailto:leowang@terpmail.umd.edu',                 urlCover: 'leowang@terpmail.umd.edu',           newSection: false},
-        {id: 2, icon: 'ri-github-fill',        title: 'Github',                        url: 'https://github.com/Andallfor',                    urlCover: 'github.com/Andallfor',               newSection: true },
-        {id: 3, icon: 'ri-linkedin-box-fill',  title: 'LinkedIn',                      url: 'https://www.linkedin.com/in/leo-z-wang', urlCover: 'linkedin.com/in/leo-wang-765251292', newSection: true },
-        {id: 4, icon: 'ri-file-list-2-fill',   title: 'Resume',                        url: '',                                                urlCover: 'Download',                           newSection: false}
-    ];
-
     const sk = [
         {header: 'experiences', skills: [
             {name: 'NASA', desc: <Exp_NASA/>},
@@ -109,7 +101,7 @@ export default function Information() {
         setSkillsShown(change);
     }
 
-    useEffect(() => {
+    useEffect(() => { // scuffed, look into https://stackoverflow.com/questions/19014250/rerender-view-on-browser-resize-with-react
         if (doesNeedUpdate) {
             notifySkillsShownChange(false);
             checkCollapse();
@@ -138,14 +130,14 @@ export default function Information() {
                                 <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => notifySkillsShownChange(!skillsShown)} notifySkillHighlight={updateSkillHighlight} notifyCollapse={updateCollapse} collapsed={collapsed}/>
                             </div>
                         </div>
-                        <About links={[]} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}/>
+                        <About titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}/>
                     </>) : <>
                         <div className='w-full flex justify-between gap-4'>
                             <div className='flex-grow-[0.5] min-w-[270px]'>
                                 <img src="self.jpg" className=''/>
                             </div>
                             <div className='flex-grow-[3] w-[70%] min-w-[60%] xl:min-w-[70%]'>
-                                <About links={[]} titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}/>
+                                <About titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}/>
                             </div>
                             <div className=''>
                                 <Skills groups={sk} skillsShown={skillsShown} toggleSkillsShown={() => notifySkillsShownChange(!skillsShown)} notifySkillHighlight={updateSkillHighlight} notifyCollapse={updateCollapse} collapsed={collapsed}/>

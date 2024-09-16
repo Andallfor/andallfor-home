@@ -2,36 +2,13 @@ import { useState } from "react";
 import { SkillProp } from "./SkillSubsection";
 import Brief from "./descriptions/Brief";
 
-interface ContactLinkProp {
-    links: ContactLink[];
+interface AboutProp {
     titleSubsection: SkillProp | null;
     notifySkillHighlight: (data: SkillProp | null) => void;
 }
 
-interface ContactLink {
-    id: number,
-    icon: string,
-    title: string,
-    url: string,
-    urlCover: string,
-    newSection: boolean
-}
-
-interface ContactLinkTitleConfig { icon: string, title: string, newSection: boolean }
-interface ContactLinkBodyConfig { url: string, urlCover: string, newSection: boolean }
-
-function ContactLinkTitle({icon, title, newSection}: ContactLinkTitleConfig) {
-    if (newSection) return (<div className="mt-2"><i className={icon + " ri-lg mr-2"}></i><span>{title}</span></div>);
-    else return (<div><i className={icon + " ri-lg mr-2"}></i><span>{title}</span></div>);
-}
-
-function ContactLinkBody({url, urlCover, newSection}: ContactLinkBodyConfig) {
-    if (newSection) return (<div className="mt-2"><a className="link-red-2" target="_blank" href={url}>{urlCover}</a></div>);
-    else return (<div><a className="link-red-2" target="_blank" href={url}>{urlCover}</a></div>);
-}
-
 // undefined denotes that there should be a gap between this and the next entry
-export default function About({ links, titleSubsection, notifySkillHighlight }: ContactLinkProp) {
+export default function About({ titleSubsection, notifySkillHighlight }: AboutProp) {
     // um. it was very late when i coded this.
 
     function triggerAnimation(e: HTMLElement, a: string, dir: string) {
