@@ -47,7 +47,7 @@ export default function Contact() {
                     {window.innerWidth < 400 ? 
                         <div className="w-full flex justify-center">
                             <div>
-                                <p className="text-off-white">[</p>
+                                <p className="text-off-white">&#123;</p>
                                 <div className="ml-8">
                                     {links.map(({ id, url, urlCover, icon, title }) => (
                                         <>
@@ -57,19 +57,19 @@ export default function Contact() {
                                         </> 
                                     ))}
                                 </div>
-                                <p className="text-off-white">];</p>
+                                <p className="text-off-white">&#125;;</p>
                             </div>
                         </div>
                      : 
                         <div className="w-full max-w-[600px] flex justify-between m-6">
                             <div>
-                                <p className="text-off-white">[</p>
+                                <p className="text-off-white">&#123;</p>
                                 <div className="ml-4 md:ml-12">
                                     {links.map(({ id, icon, title, newSection }) => (
                                         <ContactLinkTitle key={id} icon={icon} title={title} newSection={newSection}></ContactLinkTitle>
                                     ))}
                                 </div>
-                                <p className="text-off-white">];</p>
+                                <p className="text-off-white">&#125;;</p>
                             </div>
                             <div>
                                 <br/>

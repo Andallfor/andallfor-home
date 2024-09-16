@@ -74,8 +74,8 @@ export default function Navigation() {
 
             <div className="flex-grow h-0 min-h-full">
                 <div className="flex justify-evenly text-white fira-code-font text-lg md:text-xl mr-4 ml-4">
-                    <NavigationButton name='projects' highlightColor="bg-red-main" img='moonMeshFull.png' action={() => handleNavClick('projects-scroll-anchor')}/>
                     <NavigationButton name='about' highlightColor="bg-purple-main" img='robotCrop.jpg' translateOverride="-translate-y-[90vh] h-[85vh]" action={() => handleNavClick('information-scroll-anchor')}/>
+                    <NavigationButton name='projects' highlightColor="bg-red-main" img='moonMeshFull.png' action={() => handleNavClick('projects-scroll-anchor')}/>
                     <NavigationButton name='contact' highlightColor="bg-blue-main" img='barnesHutCrop.png' action={() => handleNavClick('contact-scroll-anchor')}/>
                 </div>
             </div>
