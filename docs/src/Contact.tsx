@@ -28,6 +28,7 @@ function useWindowSize() {
 }
 
 export default function Contact() {
+    // @ts-ignore
     const [width, height] = useWindowSize();
 
     const links = [
