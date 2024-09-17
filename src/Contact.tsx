@@ -36,7 +36,7 @@ export default function Contact() {
         {id: 1, icon: 'ri-mail-fill',          title: 'College Email',  url: 'mailto:leowang@terpmail.umd.edu',        urlCover: 'leowang@terpmail.umd.edu',    newSection: false},
         {id: 2, icon: 'ri-github-fill',        title: 'Github',         url: 'https://github.com/Andallfor',           urlCover: 'github.com/Andallfor',        newSection: true },
         {id: 3, icon: 'ri-linkedin-box-fill',  title: 'LinkedIn',       url: 'https://www.linkedin.com/in/leo-z-wang', urlCover: 'linkedin.com/in/leo-z-wang/', newSection: true },
-        {id: 4, icon: 'ri-file-list-2-fill',   title: 'Resume',         url: 'software_resume.pdf',                    urlCover: 'Download',                    newSection: false}
+        {id: 4, icon: 'ri-file-list-2-fill',   title: 'Resume',         url: 'https://github.com/Andallfor/andallfor-home/blob/main/public/software_resume.pdf',                    urlCover: 'View',                    newSection: false}
     ];
 
     return (
