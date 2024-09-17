@@ -7,6 +7,14 @@ import Footer from './Footer.tsx';
 import Projects from './Projects.tsx';
 import Contact from './Contact.tsx';
 
+/*
+
+npx tailwindcss -i ./src/index.css -o index.css --watch  
+npm run dev
+npm run deploy
+
+*/
+
 const root = createRoot(document.getElementById('root')!);
 root.render(
     <>
