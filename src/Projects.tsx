@@ -50,6 +50,11 @@ export default function Projects() {
         <div className="flex justify-center w-full flex-col items-center">
             <div id="projects-scroll-anchor" className="md:mt-44 mt-12 h-20"></div>
             <p className="text-4xl sm:text-5xl 2xl:text-6xl text-white fira-code-font md:mb-32 mb-16">D:\PROJECTS</p>
+            <Project right={false} title="MITRE Corporation Training Platform" date="Oct-Dec 2024" location="University of Maryland"
+                skills="NextJS, TailwindCSS, Typescript" img="MITRE_downscaled.jpg" links={[]}
+                body="I worked with a student led team at the University of Maryland to create an internal tool for the Mitre Corporation as a frontend developer. This tool was a training platform for new employees to learn cybersecurity skills. I was responsible for creating the admin page, which was a user-friendly way to access and modify all registered employee data. As this project was an internal tool, I am unable to show excepts of it."
+                caption="My team and I inside MITRE headquarters, after presenting our application."/>
+            <div className="h-24 md:h-36"></div>
             <Project right={true} title="Barnes-Hut Simulation" date="Aug 2024" location="Personal Project"
                 skills="C++, Dear ImGui" img="barnesHut.png" links={[
                     {text: "Source Code", link: "https://github.com/Andallfor/Barnes-Hut-Simulation"},
@@ -62,7 +67,8 @@ export default function Projects() {
                     {text: "Source Code", link: "https://github.com/Andallfor/MVT"},
                     {text: "Paper", link: "https://ieeexplore.ieee.org/document/10521148"},
                 ]}
-                body="The Mission Visualization Toolkit (MVT, also referred to as LATTE for the current version). I led the team as the head developer to create a scientific simulation of various planetary ground stations, their surrounding terrain, and orbiting satellites. This was used for the generation of connection windows (when a ground station can communicate to a satellite), which are then translated into optimized communication schedules that prioritizes high-importance satellites. This project was created over my 3 year NASA internship."
+                body="
+                I led a team of 5 other interns as the lead developer to create the Mission Visualization Toolkit (MVT, also referred to as LATTE for the current version). This project was a scientific simulation of various planetary ground stations, their surrounding terrain, and orbiting satellites. This was used for the generation of connection windows (when a ground station can communicate to a satellite), which are then translated into optimized communication schedules that prioritizes high-importance satellites. The project was created over my 3 year NASA internship."
                 caption="Close up of Canberra Deep Space Communications Complex.&#13;&#10;30 meter resolution, ~10 million points In view."/>
             <div className="h-24 md:h-36"></div>
             <Project right={true} title="Robotics Team Website" date="Aug-Dec 2023" location="Virtual"
