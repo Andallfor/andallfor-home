@@ -52,7 +52,7 @@ export default function Projects() {
             <p className="text-4xl sm:text-5xl 2xl:text-6xl text-white fira-code-font md:mb-32 mb-16">D:\PROJECTS</p>
             <Project right={false} title="MITRE Corporation Training Platform" date="Oct-Dec 2024" location="University of Maryland"
                 skills="NextJS, TailwindCSS, Typescript" img="MITRE_downscaled.jpg" links={[]}
-                body="I worked with a student led team at the University of Maryland to create an internal tool for the Mitre Corporation as a frontend developer. This tool was a training platform for new employees to learn cybersecurity skills. I was responsible for creating the admin page, which was a user-friendly way to access and modify all registered employee data. As this project was an internal tool, I am unable to show excepts of it."
+                body="I worked with a student led team at the University of Maryland to create an internal tool for the Mitre Corporation as a frontend developer. This tool was a training platform for new employees to learn cybersecurity skills. I was responsible for creating the admin page, which was a user-friendly way to access and modify all registered employee data."
                 caption="My team and I inside MITRE headquarters, after presenting our application."/>
             <div className="h-24 md:h-36"></div>
             <Project right={true} title="Barnes-Hut Simulation" date="Aug 2024" location="Personal Project"
