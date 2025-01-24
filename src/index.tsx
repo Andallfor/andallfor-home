@@ -11,8 +11,8 @@ import Contact from './Contact.tsx';
 
 npx tailwindcss -i ./src/index.css -o index.css --watch  
 npm run dev
-npm run deploy
 
+npm run deploy
 after deploying go to github and add custom domain www.leozwang.org
 
 */
