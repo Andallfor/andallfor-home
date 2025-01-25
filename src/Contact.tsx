@@ -9,6 +9,7 @@ function ContactLinkTitle({icon, title, newSection}: ContactLinkTitleConfig) {
 }
 
 function ContactLinkBody({url, urlCover, newSection}: ContactLinkBodyConfig) {
+    if (url == '') return <div>"<span className="link-red-2">{urlCover}</span>",</div>;
     if (newSection) return (<div className="mt-4">"<a className="link-red-2" target="_blank" href={url}>{urlCover}</a>",</div>);
     else return (<div>"<a className="link-red-2" target="_blank" href={url}>{urlCover}</a>",</div>);
 }
@@ -32,8 +33,8 @@ export default function Contact() {
     const [width, height] = useWindowSize();
 
     const links = [
-        {id: 0, icon: 'ri-mail-star-fill',     title: 'Personal Email', url: 'mailto:leozwang2005@gmail.com',          urlCover: 'leozwang2005@gmail.com',      newSection: false},
-        {id: 1, icon: 'ri-mail-fill',          title: 'College Email',  url: 'mailto:leowang@terpmail.umd.edu',        urlCover: 'leowang@terpmail.umd.edu',    newSection: false},
+        {id: 0, icon: 'ri-mail-star-fill',     title: 'Personal Email', url: '',                                       urlCover: 'leozwang2005[at]gmail.com',      newSection: false},
+        {id: 1, icon: 'ri-mail-fill',          title: 'College Email',  url: '',                                       urlCover: 'leowang[at]terpmail.umd.edu',    newSection: false},
         {id: 2, icon: 'ri-github-fill',        title: 'Github',         url: 'https://github.com/Andallfor',           urlCover: 'github.com/Andallfor',        newSection: true },
         {id: 3, icon: 'ri-linkedin-box-fill',  title: 'LinkedIn',       url: 'https://www.linkedin.com/in/leo-z-wang', urlCover: 'linkedin.com/in/leo-z-wang/', newSection: true },
         {id: 4, icon: 'ri-file-list-2-fill',   title: 'Resume',         url: 'software_resume.pdf',                    urlCover: 'View',                    newSection: false}
