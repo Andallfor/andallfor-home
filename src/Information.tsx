@@ -89,6 +89,8 @@ export default function Information() {
     function notifySkillsShownChange(change: boolean) {
         const blocker = document.getElementById("skills-blocker");
         const container = document.getElementById('skills-container');
+        if (!blocker || !container) return;
+
         if (!change) {
             (blocker?.firstChild as HTMLElement).classList.replace('pointer-events-auto', 'pointer-events-none');
             blocker?.classList.replace('opacity-100', 'opacity-0');
@@ -108,7 +110,8 @@ export default function Information() {
             checkCollapse();
     
             window.addEventListener('resize', () => {
-                if (window.innerWidth !+ lastWidth) updateWidth(window.innerWidth);
+                // TODO: this used to be !+ instead of !=. look into if this broke anything
+                if (window.innerWidth != lastWidth) updateWidth(window.innerWidth);
                 checkCollapse();
                 setDoesNeedUpdate(true);
             });
@@ -119,7 +122,12 @@ export default function Information() {
 
     return (
         <div className='md:mr-8 md:ml-8 sm:mr-2 sm:ml-2 mt-16'>
-            <div className="w-full flex justify-center">
+            <div className="w-full flex justify-center items-center gap-16">
+                <img src="self.jpg" className='lg:h-[600px] sm:h-[400px] sm:block hidden'/>
+                <div>
+                    <About titleSubsection={highlightedSkill} notifySkillHighlight={updateSkillHighlight}/>
+                </div>
+                {/*
                 <div className="w-full">
                     {window.innerWidth < 1024 ? (<>
                         <div className='flex justify-between w-full'>
@@ -147,6 +155,7 @@ export default function Information() {
                         </div>
                     </>}
                 </div>
+                */}
             </div>
          </div>
     );

@@ -70,17 +70,21 @@ export default function About({ titleSubsection, notifySkillHighlight }: AboutPr
                 <div className="pl-4 pr-4 pt-4 pb-2 text-content tracking-wide leading-normal">
                     {(titleSubsection === null) ? (<>
                         <br/><Brief data={[
-                            {title: 'experience', desc: '6+ Years'},
-                            {title: 'main language', desc: 'C#'},
-                            {title: 'role', desc: 'Backend Engineer'},
+                            {title: 'experience', desc: '7+ Years'}, // 7 years as of 10/23/2025 (started in 6th? 7th?)
+                            {title: 'primary language', desc: 'Python, TypeScript'},
+                            {title: 'role', desc: 'Software Engineering'},
                         ]}></Brief>
                         <p className='font-semibold'>Hello! Thanks for stopping by!</p><br/>
                         <div className='indent-6'>
-                            My name is Leo Wang, an undergraduate studying <span className="font-semibold link-purple-2">Computer Science</span> (Data Science specialization) and <span className="font-semibold link-purple-2">Math</span> at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a>. I am currently part of the <a target='_blank' href="https://www.cs.umd.edu/~dml/new-honors/" className="font-semibold link-blue-2">Computer Science Departmental Honors</a> program, which focuses on undergraduate research. I was also accepted into the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College, however I have since moved on as I intend to pursue theoretical and/or data science based fields. I have the most experience in high-performance scientific simulations and large-scale (billions (!)) data processing/visualization, especially as a result of my <a target='_blank' href='https://github.com/Andallfor/MVT' className='font-semibold link-red-2'>3 year long internship with NASA</a>. The moon background image on this page was created using the code I wrote for the internship.
+                            My name is Leo Wang, an undergraduate studying <span className="font-semibold link-purple-2">Computer Science</span> (Data Science specialization) and <span className="font-semibold link-purple-2">Math</span> at the <a target='_blank' href="https://umd.edu/" className="font-semibold link-blue-2">University of Maryland, College Park</a>, with a <span className="font-semibold link-purple-2">4.0 GPA</span>. I am currently part of the <a target='_blank' href="https://www.cs.umd.edu/~dml/new-honors/" className="font-semibold link-blue-2">Computer Science Departmental Honors</a> program, which focuses on undergraduate research. I was also accepted into the <a target='_blank' href="https://aces.umd.edu/" className="font-semibold link-blue-2">Advanced Cybersecurity Experience (ACES)</a> Honors College though I have since moved on. I plan to graduate in the Spring of 2027.
                         </div><br/>
-                        <div className='indent-6'><span className="link-purple-2">To the right{window.innerWidth < 768 ? ' of my portrait' : ''}</span> is an abridged list of just the technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are sorted strongest to weakest (though I consider myself proficient in all listed technologies). <span className='link-blue-2'>Blue links</span> will link to outside sources, such as technologies or context. <span className='link-red-2'>Red links</span> will refer to something I have created, such as a project.</div><br/>
                         <div className='indent-6'>
-                            Outside of programming, I enjoy metal model building (the <a target='_blank' className='font-semibold link-purple-2' href='https://www.metalearth.com/premium'>Metal Earth</a> series is great!), astronomy, and reading. Currently, my favorite book is <a target='_blank' href='https://en.wikipedia.org/wiki/Babel,_or_the_Necessity_of_Violence' className='font-semibold link-purple-2 italic'>Babel, or the Necessity of Violence</a> by R.F. Kuang - I cannot recommend this book enough if you are into fantasy with elements of social commentary. When I have the time, I like to go exploring and/or hiking. Otherwise, I spend my time admiring how strange my dogs are.
+                            I have significant experience in web development, especially using TypeScript and React. That said, I am currently branching out into more traditional software engineering, and so also have experience with C++ and C#. In general, I find my interests in data science (especially within a geospatial context), software engineering, and scientific computing.
+                        </div><br/>
+                        {/* <div className='indent-6'><span className="link-purple-2">To the right{window.innerWidth < 768 ? ' of my portrait' : ''}</span> is an abridged list of just the technologies I am proficient in - each will have a linked project(s) to demonstrate this knowledge. The subsections are sorted strongest to weakest (though I consider myself proficient in all listed technologies). <span className='link-blue-2'>Blue links</span> will link to outside sources, such as technologies or context. <span className='link-red-2'>Red links</span> will refer to something I have created, such as a project.
+                        </div><br/> */}
+                        <div className='indent-6'>
+                            Outside of programming, I enjoy metal model building (the <a target='_blank' className='font-semibold link-purple-2' href='https://www.metalearth.com/premium'>Metal Earth</a> series is great!), gaming, and reading. Currently, my favorite book is the novel <a target='_blank' href='https://en.wikipedia.org/wiki/Martyr!' className='font-semibold link-purple-2 italic'>Martyr!</a> by Kaveh Akbar, which is broadly about the meaningfulness (or lack thereof) of martyrdom, both as it relates to traditional martyrdom (think Joan of Arc) and "earth martyrs" (defined as "people who die for other people"). When I have the time, I also like to go exploring/hiking with my bike.
                         </div><br/>
                         <div className="w-5/6 text-right">- Leo Wang</div>
                     </>) : (<>
@@ -90,7 +94,7 @@ export default function About({ titleSubsection, notifySkillHighlight }: AboutPr
                     </>)}
                 </div>
 
-                <div className='w-full flex justify-center mt-12 2xl:hidden'>
+                <div className='w-full flex justify-center mt-12 hidden'>
                     <button onClick={() => document.getElementById('information-scroll-anchor')!.scrollIntoView({behavior: 'smooth'})} className="font-semibold mb-4 text-header tracking-wider"><i className="ri-arrow-up-s-line mr-2 ml-2"></i>Return to Top</button>
                 </div>
             </div>

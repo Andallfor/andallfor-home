@@ -1,4 +1,4 @@
-type BriefTitles = 'skill' | 'experience' | 'platforms' | 'main language' | 'role' | 'duration' | 'libraries' | 'specialty';
+type BriefTitles = 'skill' | 'experience' | 'platforms' | 'primary language' | 'role' | 'duration' | 'libraries' | 'specialty';
 
 interface BriefProp {
     data: BriefData[];
@@ -14,7 +14,7 @@ export default function Brief({ data }: BriefProp) {
         'skill': 'ri-medal-2-fill',
         'platforms': 'ri-database-2-fill',
         'experience': 'ri-hourglass-fill',
-        'main language': 'ri-code-s-slash-fill',
+        'primary language': 'ri-code-s-slash-fill',
         'role': 'ri-user-3-fill',
         'duration': 'ri-calendar-2-fill',
         'libraries': 'ri-book-shelf-fill',
