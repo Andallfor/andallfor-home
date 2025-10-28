@@ -75,7 +75,7 @@ export default function Projects() {
                     {text: "Website", link: "https://gpsmet.umd.edu/gnssro/index.php"},
                 ]}
                 body="During this summer internship, I worked at CISESS (a joint institute between NOAA and UMD) to extend the functionality of the GNSS-RO page. This included creating tooling to analyze ~1.6 million lines of download logs (totaling ~200 TB of downloads) to better understand our user demographic, refactoring how the codebase serves pages by allowing the server to dynamically resolve and generate the desired page rather than needing to hardcode paths, and creating a new Ground Tracker application to visualize GNSS-RO profiles.
-                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Ground Tracker application replaced previous tooling and offers the ability to interact with profiles in a 3D and 2D environment, filter profiles by SNR, penetration depth, time range, and GNSS. It can display upwards of 50,000 profiles at a stable FPS in a browser environment."
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;The Ground Tracker application replaced previous tooling and offers the ability to interact with profiles in a 3D and 2D environment, filter profiles by SNR, penetration depth, time range, and GNSS. It can display upwards of 50,000 profiles at a stable FPS in a browser environment. I was awarded the Best CISESS Summer Intern Presentation award."
                 caption="The 3D view in Ground Tracker showing 33,000 GNSS profiles from PlanetiQ, Spire, and COSMIC-2, colored by SNR value, Sept 8 - 11th."/>
             <div className="h-24 md:h-36"></div>
             <Project right={true} title="Radiology Pronunciation Dictionary for Foreign Speakers"
