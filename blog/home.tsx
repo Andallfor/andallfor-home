@@ -6,7 +6,7 @@ export default function BlogHome() {
     return (
         <>
             <div className="flex justify-center absolute -z-50 -translate-y-32">
-                <img src="/public/elitedangerous2.jpg" className="object-cover h-[1200px] -z-50 select-none" style={{filter: 'brightness(80%)'}}/>
+                <img src="/elitedangerous2.jpg" className="object-cover h-[1200px] -z-50 select-none" style={{filter: 'brightness(80%)'}}/>
             </div>
             <div className="absolute right-0 top-[80px] text-off-white text-right mb-4 mr-4 text-2xs sm:text-xs leading-leading fira-code-font">
                 <p>Image taken in <a className="link-red" target='_blank' href="https://store.steampowered.com/app/359320/Elite_Dangerous/">Elite Dangerous</a> by me.</p>

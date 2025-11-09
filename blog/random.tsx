@@ -16,6 +16,6 @@ function RandomImage({ images }: { images: string[] }) {
 
 export default function DogImageCarousel() {
     return <div>
-        <RandomImage images={[...Array(16).keys()].map(x => `/public/dogs/dogs-${x + 1}.jpg`)} />
+        <RandomImage images={[...Array(16).keys()].map(x => `/dogs/dogs-${x + 1}.jpg`)} />
     </div>
 }

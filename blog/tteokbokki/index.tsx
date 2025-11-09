@@ -6,7 +6,7 @@ const root = createRoot(document.getElementById('root')!);
 root.render(
     <PostMain data={{
         title: "I Want to Die but I Want to Eat Tteokbokki",
-        image: "/public/blog/tteokbokki.jpg",
+        image: "/blog/tteokbokki.jpg",
         type: "book",
         metadata:
             (<div>

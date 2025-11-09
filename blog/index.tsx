@@ -16,7 +16,7 @@ root.render(
             abstract: "",
             title: "I Want to Die but I Want to Eat Tteokbokki",
             type: "book",
-            image: "/public/blog/tteokbokki.jpg",
+            image: "/blog/tteokbokki.jpg",
             redirect: "/blog/tteokbokki/"
         }}/>
         <Footer />

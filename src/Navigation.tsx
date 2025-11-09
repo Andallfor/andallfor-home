@@ -3,41 +3,31 @@ import { useEffect } from 'react';
 interface NavigationButtonConfig {
     name: string,
     highlightColor: string,
-    translateOverride?: string,
     redirect: string,
 };
 
-function NavigationButton({name, highlightColor, translateOverride, redirect} : NavigationButtonConfig) {
-    translateOverride = (translateOverride !== undefined) ? translateOverride : '-translate-y-[100vh] h-[95vh]';
-
+function NavigationButton({name, highlightColor, redirect} : NavigationButtonConfig) {
     function get(type: '' | '-link' | '-highlight'): HTMLElement {
         return document.getElementById('nav-' + name + type)!;
     }
 
-    useEffect(() => {
-        window.addEventListener('scroll', () => {
-            if (window.scrollY <= 16) get('-highlight').classList.replace('peer-hover:translate-y-11', 'peer-hover:translate-y-8');
-            else get('-highlight').classList.replace('peer-hover:translate-y-8', 'peer-hover:translate-y-11');
-        });
-    });
-
-    let lc = ['nav-' + name + '-link', "peer w-full text-center pt-8 -translate-y-8 absolute delay-150 cursor-pointer", name.charAt(0).toUpperCase() + name.substring(1)];
+    let lc = ['nav-' + name + '-link', "peer w-full text-center absolute delay-150 cursor-pointer", name.charAt(0).toUpperCase() + name.substring(1)];
     return (
-        <div id={'nav-' + name} className="w-1/3 relative flex items-center flex-col">
+        <div id={'nav-' + name} className="flex-grow relative flex items-center flex-col">
             <a id={lc[0]} className={lc[1]} href={redirect}>{lc[2]}</a>
             <div className='absolute w-full h-full bg-red-500'></div>
-            {<div id={'nav-' + name + '-highlight'} className='relative peer-hover:translate-y-8 translate-y-4 duration-[350ms] transition-transform pointer-events-none opacity-0 peer-hover:opacity-100 bottom-16 w-full z-50 hidden sm:block'>
+            <div id={'nav-' + name + '-highlight'} className='relative peer-hover:translate-y-11 translate-y-4 duration-[350ms] transition-transform pointer-events-none opacity-0 peer-hover:opacity-100 bottom-16 w-full z-50 hidden sm:block'>
                 <div className='absolute flex w-full justify-center'>
                     <div className={highlightColor + " absolute md:max-w-[50vw] w-screen 2xl:w-full h-4"}></div>
                 </div>
-            </div>}
+            </div>
         </div>
     );
 }
 
 export default function Navigation() {
     return (
-        <div id="navigation-main" className="w-full flex mt-8 sticky top-4 z-[100] select-none">
+        <div id="navigation-main" className="w-full flex sticky top-4 z-[100] select-none">
             <div className="absolute w-full top-4 sm:top-0 h-[calc(100%+1rem+2rem)] -translate-y-8 backdrop-blur-md -z-50"></div>
             <div className="ml-6 md:ml-8 hidden xs:flex gap-3 text-white translate-y-[0.075em]">
                 <button onClick={() => {
@@ -58,8 +48,8 @@ export default function Navigation() {
             </div>
 
             <div className="flex-grow h-0 min-h-full">
-                <div className="flex justify-evenly text-white fira-code-font text-lg md:text-xl mr-4 ml-4">
-                    <NavigationButton name='about' highlightColor="bg-[#3b1725]" translateOverride="-translate-y-[90vh] h-[85vh]" redirect="/#about"/>
+                <div className="flex justify-evenly text-white fira-code-font text-sm sm:text-lg md:text-xl mr-4 ml-4">
+                    <NavigationButton name='about' highlightColor="bg-[#3b1725]" redirect="/#about"/>
                     <NavigationButton name='projects' highlightColor="bg-[#73172d]" redirect="/#projects"/>
                     <NavigationButton name='contact' highlightColor="bg-[#b4202a]" redirect="/#contact"/>
                     <NavigationButton name='blog' highlightColor="bg-[#df3e23]" redirect="/blog/"/>

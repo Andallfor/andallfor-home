@@ -14,11 +14,14 @@
   },
   "dependencies": {
     "andallfor-home": "file:",
+    "path": "^0.12.7",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "url": "^0.11.4"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
+    "@types/node": "^24.10.0",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.1",

@@ -28,16 +28,16 @@ interface postData {
 export default function PostEntry({ data }: { data: postEntryData }) {
     return (
         <div className="flex justify-center w-full">
-            <div className='flex justify-center gap-5 sm:gap-20 w-[min(45rem,90%)]'>
+            <div className='flex justify-center gap-3 xs:gap-5 sm:gap-20 w-[min(45rem,90%)]'>
                 <img src={data.image} className={'h-[200px] sm:h-[300px] ring-4 ' + types[data.type][1]}/>
                 <div className='text-white'>
                     <a className='fira-code-font md:text-2xl text-lg mt-2 font-semibold link-blue-2' href={data.redirect}>
                         {data.title}
                     </a>
                     <div className="text-content mt-4 whitespace-pre-line">{data.abstract}</div>
-                    <div className="flex justify-between items-center gap-4 mt-4 w-full text-off-white text-content-sm">
+                    <div className="flex justify-between xs:gap-4 mt-4 w-full text-off-white text-content-sm flex-col xs:flex-row">
                         <i>{types[data.type][0]}</i>
-                        <div className="flex-grow h-[1px] bg-off-white min-w-4"></div>
+                        <div className="flex-grow xs:self-center h-[1px] bg-off-white"></div>
                         <p>November 9, 2025</p>
                     </div>
                 </div>
