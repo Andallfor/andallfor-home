@@ -68,7 +68,7 @@ function Project({ skills, title, date, location, body, img, links, right, capti
 export default function Projects() {
     return (
         <div className="flex justify-center w-full flex-col items-center">
-            <div id="projects-scroll-anchor" className="md:mt-44 mt-12 h-20"></div>
+            <div id="projects" className="md:mt-44 mt-12 h-20"></div>
             <p className="text-4xl sm:text-5xl 2xl:text-6xl text-white fira-code-font md:mb-32 mb-16">D:\PROJECTS</p>
             <Project right={true} title="TestuGo: Bluetooth Navigation and Exploration Application"
                 date="Aug 2025 - Present"

@@ -23,7 +23,7 @@ root.render(
         <Navigation></Navigation>
         <LandingPage></LandingPage>
         <div className='h-16'></div>
-        <div id="information-scroll-anchor" className='h-16'></div>
+        <div id="about" className='h-16'></div>
         <Information></Information>
         <Projects></Projects>
         <Contact></Contact>

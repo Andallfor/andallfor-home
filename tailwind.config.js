@@ -1,6 +1,11 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["index.html", "src/{*.tsx,*.css}", "src/descriptions{*.tsx,*.css}"],
+  content: [
+    "index.html",
+    "src/{*.tsx,*.css}",
+    "src/descriptions{*.tsx,*.css}",
+    "blog/{*.tsx,*.css,index.html}",
+    "blog/*/{*.tsx,*.css,index.html}"],
   theme: {
     extend: {
       colors: {
@@ -9,6 +14,7 @@ module.exports = {
         'purple-main': '#793a80',
         'red-main': '#b4202a',
         'blue-main': '#143464',
+        'green-main': ' #1a7a3e',
         'off-white': '#dae0ea',
         'purple-light': '#bc4a9b',
         'purple-bright': '#e86a73',

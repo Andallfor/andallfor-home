@@ -43,7 +43,7 @@ export default function Contact() {
     return (
         <div>
             <div className="flex justify-center w-full flex-col items-center">
-                <div id="contact-scroll-anchor" className="md:mt-44 mt-12 h-20"></div>
+                <div id="contact" className="md:mt-44 mt-12 h-20"></div>
                 <p className="text-4xl sm:text-5xl 2xl:text-6xl text-white fira-code-font md:mb-20 mb-8">H:\CONTACT</p>
                 <div className="flex w-full justify-center text-nowrap  text-white text-content fira-code-font">
                     {window.innerWidth < 400 ? 

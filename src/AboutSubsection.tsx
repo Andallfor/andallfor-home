@@ -95,7 +95,7 @@ export default function About({ titleSubsection, notifySkillHighlight }: AboutPr
                 </div>
 
                 <div className='w-full flex justify-center mt-12 hidden'>
-                    <button onClick={() => document.getElementById('information-scroll-anchor')!.scrollIntoView({behavior: 'smooth'})} className="font-semibold mb-4 text-header tracking-wider"><i className="ri-arrow-up-s-line mr-2 ml-2"></i>Return to Top</button>
+                    <button onClick={() => document.getElementById('about')!.scrollIntoView({behavior: 'smooth'})} className="font-semibold mb-4 text-header tracking-wider"><i className="ri-arrow-up-s-line mr-2 ml-2"></i>Return to Top</button>
                 </div>
             </div>
         </div>
